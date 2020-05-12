@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">СОБИРАШКИ</string>
+    <string name="btn_play">ИГРАТь</string>
+    <string name="btn_setting">НАСТРОЙКИ</string>
+    <string name="btn_exit">ВЫХОД</string>
+    <string name="btn_back">НАЗАД</string>
+    <string name="level">УРОВЕНЬ:</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

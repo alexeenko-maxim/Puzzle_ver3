@@ -6,37 +6,42 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.GridView;
 
-public class GestureDetectGridView extends GridView {
+import java.util.ArrayList;
+
+public class GestureDetectGridView1 extends GridView {
 
     private static GestureDetector gDetector;
     private boolean mFlingConfirmed = false;
     private float mTouchX;
     private float mTouchY;
-
     private static  final  int SWIPE_MIN_DISTANCE = 100;
     private static  final  int SWIPE_MAX_OFF_PATH = 100;
     private static  final  int SWIPE_THRESHOLD_VELOCITY = 100;
 
 
-    public GestureDetectGridView(Context context) {
+    public GestureDetectGridView1(Context context) {
         super(context);
         init(context);
     }
 
-    public GestureDetectGridView(Context context, AttributeSet attrs) {
+    public GestureDetectGridView1(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context);
     }
 
-    public GestureDetectGridView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public GestureDetectGridView1(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP) // API 21
-    public GestureDetectGridView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public GestureDetectGridView1(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init(context);
     }
@@ -59,7 +64,7 @@ public class GestureDetectGridView extends GridView {
 
             @Override
             public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-                final int position = GestureDetectGridView.this.pointToPosition(Math.round(e1.getX()), Math.round(e1.getY()));
+                final int position = GestureDetectGridView1.this.pointToPosition(Math.round(e1.getX()), Math.round(e1.getY()));
 
                 if (Math.abs(e1.getY() - e2.getY()) > SWIPE_MAX_OFF_PATH) {
                     if (Math.abs(e1.getX() - e2.getX()) > SWIPE_MAX_OFF_PATH || Math.abs(velocityY) < SWIPE_THRESHOLD_VELOCITY) {
@@ -129,5 +134,48 @@ public class GestureDetectGridView extends GridView {
     public boolean onTouchEvent(MotionEvent ev) {
         return gDetector.onTouchEvent(ev);
 
+    }
+}
+
+class CustomAdapter extends BaseAdapter {
+
+    private ArrayList<Button> mButtons = null;
+    private int mColumnWidth, mColumnHeight;
+
+    public CustomAdapter(ArrayList<Button> buttons, int columnWidth, int columnHeight) {
+        mButtons = buttons;
+        mColumnWidth = columnWidth;
+        mColumnHeight = columnHeight;
+    }
+
+    @Override
+    public int getCount() {
+        return mButtons.size();
+    }
+
+    @Override
+    public Object getItem(int position) {return (Object) mButtons.get(position);}
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+
+        Button button;
+
+        if (convertView == null){
+            button = mButtons.get(position);
+        }
+        else {
+            button = (Button) convertView;
+        }
+
+        android.widget.AbsListView.LayoutParams params =
+                new android.widget.AbsListView.LayoutParams(mColumnWidth, mColumnHeight);
+        button.setLayoutParams(params);
+        return button;
     }
 }

@@ -27,7 +27,7 @@ import java.util.Random;
 public class Level_01 extends AppCompatActivity {
 
     //--------------------------------------Блок переменных-----------------------------------------
-    private static GestureDetectGridView mGridView;
+    private static GestureDetectGridView1 mGridView;
     public Button btn_play_preview;
     public Button btn_back_to_game_levels;
 
@@ -115,7 +115,7 @@ public class Level_01 extends AppCompatActivity {
 
     private void init() {
 
-        mGridView = (GestureDetectGridView) findViewById(R.id.grid_lvl_01);
+        mGridView = (GestureDetectGridView1) findViewById(R.id.grid_lvl_01);
         mGridView.setNumColumns(COLLUMN);
 
         tileList = new String[DIMENSIONS];

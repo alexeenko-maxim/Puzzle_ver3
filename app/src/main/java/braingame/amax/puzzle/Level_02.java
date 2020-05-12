@@ -21,7 +21,7 @@ import java.util.Random;
 public class Level_02 extends AppCompatActivity {
 
     //--------------------------------------Блок переменных-----------------------------------------
-    private static GestureDetectGridView mGridView;
+    private static GestureDetectGridView2 mGridView;
     public Button btn_play_preview;
     public static Dialog dialogStart;
     public static Dialog dialogFinish;
@@ -90,7 +90,7 @@ public class Level_02 extends AppCompatActivity {
 
     private void init() {
 
-        mGridView = (GestureDetectGridView) findViewById(R.id.grid_lvl_02);
+        mGridView = (GestureDetectGridView2) findViewById(R.id.grid_lvl_02);
         mGridView.setNumColumns(COLLUMN);
 
         tileList = new String[DIMENSIONS];

@@ -7,7 +7,7 @@
 
 <!--    bg img-->
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/bg_levels_screen"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
@@ -16,14 +16,15 @@
         android:layout_marginStart="0dp"
         android:layout_marginTop="0dp"
         android:scaleType="centerCrop"
-        app:srcCompat="@drawable/home_bg_blu" /><!--   .end bg img-->
+        app:srcCompat="@drawable/bg03" /><!--   .end bg img-->
 
     <!--    main container-->
     <LinearLayout
         android:id="@+id/container1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:orientation="vertical">
@@ -33,14 +34,32 @@
             android:id="@+id/container2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dp">
+            android:orientation="vertical">
 
             <!--   scroll container for level btn-->
-            <ScrollView
+            <TextView
+                android:id="@+id/textView42"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="30dp"
+                android:background="#006279"
+                android:gravity="center_horizontal"
+                android:padding="10dp"
+                android:text="ВЫБОР УРОВНЯ"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:id="@+id/container3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="10dp">
+                android:gravity="center_horizontal|left"
+                android:orientation="horizontal"/>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="350dp">
 
 
                 <!--   container for level btn-->
@@ -51,6 +70,7 @@
                     android:orientation="vertical">
 
                     <!--   1st line for level btn-->
+
                     <LinearLayout
                         android:id="@+id/line1"
                         android:layout_width="match_parent"
@@ -77,10 +97,10 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginRight="10dp"
-                            android:background="@drawable/text_link_style"
+                            android:background="@drawable/lock_green"
                             android:gravity="center"
                             android:text="2"
-                            android:textColor="@color/white"
+                            android:textColor="@android:color/transparent"
                             android:textSize="24sp"
                             android:textStyle="bold" />
                         <!--  .end btn 2 -->
@@ -91,10 +111,10 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginRight="10dp"
-                            android:background="@drawable/text_link_style"
+                            android:background="@drawable/lock_green"
                             android:gravity="center"
                             android:text="3"
-                            android:textColor="@color/white"
+                            android:textColor="@android:color/transparent"
                             android:textSize="24sp"
                             android:textStyle="bold" />
                         <!--  .end btn 3 -->
@@ -105,10 +125,10 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginRight="10dp"
-                            android:background="@drawable/text_link_style"
+                            android:background="@drawable/lock_green"
                             android:gravity="center"
                             android:text="4"
-                            android:textColor="@color/white"
+                            android:textColor="@android:color/transparent"
                             android:textSize="24sp"
                             android:textStyle="bold" />
                         <!--   .end btn 1 -->
@@ -119,10 +139,10 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginRight="10dp"
-                            android:background="@drawable/text_link_style"
+                            android:background="@drawable/lock_green"
                             android:gravity="center"
                             android:text="5"
-                            android:textColor="@color/white"
+                            android:textColor="@android:color/transparent"
                             android:textSize="24sp"
                             android:textStyle="bold" />
                         <!--   .end btn 5 -->
@@ -143,10 +163,10 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginRight="10dp"
-                            android:background="@drawable/text_link_style"
+                            android:background="@drawable/lock_blu"
                             android:gravity="center"
                             android:text="6"
-                            android:textColor="@color/white"
+                            android:textColor="@android:color/transparent"
                             android:textSize="24sp"
                             android:textStyle="bold" />
                         <!--   .end btn 6 -->
@@ -157,10 +177,10 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginRight="10dp"
-                            android:background="@drawable/text_link_style"
+                            android:background="@drawable/lock_blu"
                             android:gravity="center"
                             android:text="7"
-                            android:textColor="@color/white"
+                            android:textColor="@android:color/transparent"
                             android:textSize="24sp"
                             android:textStyle="bold" />
                         <!--  .end btn 7 -->
@@ -171,10 +191,10 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginRight="10dp"
-                            android:background="@drawable/text_link_style"
+                            android:background="@drawable/lock_blu"
                             android:gravity="center"
                             android:text="8"
-                            android:textColor="@color/white"
+                            android:textColor="@android:color/transparent"
                             android:textSize="24sp"
                             android:textStyle="bold" />
                         <!--  .end btn 8 -->
@@ -185,10 +205,10 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginRight="10dp"
-                            android:background="@drawable/text_link_style"
+                            android:background="@drawable/lock_blu"
                             android:gravity="center"
                             android:text="9"
-                            android:textColor="@color/white"
+                            android:textColor="@android:color/transparent"
                             android:textSize="24sp"
                             android:textStyle="bold" />
                         <!--   .end btn 9 -->
@@ -199,10 +219,10 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginRight="10dp"
-                            android:background="@drawable/text_link_style"
+                            android:background="@drawable/lock_blu"
                             android:gravity="center"
                             android:text="10"
-                            android:textColor="@color/white"
+                            android:textColor="@android:color/transparent"
                             android:textSize="24sp"
                             android:textStyle="bold" />
                         <!--   .end btn 10 -->
@@ -223,10 +243,10 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginRight="10dp"
-                            android:background="@drawable/text_link_style"
+                            android:background="@drawable/lock_blu"
                             android:gravity="center"
                             android:text="11"
-                            android:textColor="@color/white"
+                            android:textColor="@android:color/transparent"
                             android:textSize="24sp"
                             android:textStyle="bold" />
                         <!--   .end btn 11 -->
@@ -237,10 +257,10 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginRight="10dp"
-                            android:background="@drawable/text_link_style"
+                            android:background="@drawable/lock_blu"
                             android:gravity="center"
                             android:text="12"
-                            android:textColor="@color/white"
+                            android:textColor="@android:color/transparent"
                             android:textSize="24sp"
                             android:textStyle="bold" />
                         <!--  .end btn 12 -->
@@ -251,10 +271,10 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginRight="10dp"
-                            android:background="@drawable/text_link_style"
+                            android:background="@drawable/lock_blu"
                             android:gravity="center"
                             android:text="13"
-                            android:textColor="@color/white"
+                            android:textColor="@android:color/transparent"
                             android:textSize="24sp"
                             android:textStyle="bold" />
                         <!--  .end btn 13 -->
@@ -265,10 +285,10 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginRight="10dp"
-                            android:background="@drawable/text_link_style"
+                            android:background="@drawable/lock_blu"
                             android:gravity="center"
                             android:text="14"
-                            android:textColor="@color/white"
+                            android:textColor="@android:color/transparent"
                             android:textSize="24sp"
                             android:textStyle="bold" />
                         <!--   .end btn 14 -->
@@ -279,10 +299,10 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginRight="10dp"
-                            android:background="@drawable/text_link_style"
+                            android:background="@drawable/lock_blu"
                             android:gravity="center"
                             android:text="15"
-                            android:textColor="@color/white"
+                            android:textColor="@android:color/transparent"
                             android:textSize="24sp"
                             android:textStyle="bold" />
                         <!--   .end btn 15 -->
@@ -303,10 +323,10 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginRight="10dp"
-                            android:background="@drawable/text_link_style"
+                            android:background="@drawable/lock_blu"
                             android:gravity="center"
                             android:text="16"
-                            android:textColor="@color/white"
+                            android:textColor="@android:color/transparent"
                             android:textSize="24sp"
                             android:textStyle="bold" />
                         <!--   .end btn 16 -->
@@ -317,10 +337,10 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginRight="10dp"
-                            android:background="@drawable/text_link_style"
+                            android:background="@drawable/lock_blu"
                             android:gravity="center"
                             android:text="17"
-                            android:textColor="@color/white"
+                            android:textColor="@android:color/transparent"
                             android:textSize="24sp"
                             android:textStyle="bold" />
                         <!--  .end btn 17 -->
@@ -331,10 +351,10 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginRight="10dp"
-                            android:background="@drawable/text_link_style"
+                            android:background="@drawable/lock_blu"
                             android:gravity="center"
                             android:text="18"
-                            android:textColor="@color/white"
+                            android:textColor="@android:color/transparent"
                             android:textSize="24sp"
                             android:textStyle="bold" />
                         <!--  .end btn 18 -->
@@ -345,10 +365,10 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginRight="10dp"
-                            android:background="@drawable/text_link_style"
+                            android:background="@drawable/lock_blu"
                             android:gravity="center"
                             android:text="19"
-                            android:textColor="@color/white"
+                            android:textColor="@android:color/transparent"
                             android:textSize="24sp"
                             android:textStyle="bold" />
                         <!--   .end btn 19 -->
@@ -359,10 +379,10 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginRight="10dp"
-                            android:background="@drawable/text_link_style"
+                            android:background="@drawable/lock_blu"
                             android:gravity="center"
                             android:text="20"
-                            android:textColor="@color/white"
+                            android:textColor="@android:color/transparent"
                             android:textSize="24sp"
                             android:textStyle="bold" />
                         <!--   .end btn 20 -->
@@ -383,10 +403,10 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginRight="10dp"
-                            android:background="@drawable/text_link_style"
+                            android:background="@drawable/lock_violet"
                             android:gravity="center"
                             android:text="21"
-                            android:textColor="@color/white"
+                            android:textColor="@android:color/transparent"
                             android:textSize="24sp"
                             android:textStyle="bold" />
                         <!--   .end btn 21 -->
@@ -397,10 +417,10 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginRight="10dp"
-                            android:background="@drawable/text_link_style"
+                            android:background="@drawable/lock_violet"
                             android:gravity="center"
                             android:text="22"
-                            android:textColor="@color/white"
+                            android:textColor="@android:color/transparent"
                             android:textSize="24sp"
                             android:textStyle="bold" />
                         <!--  .end btn 22 -->
@@ -411,10 +431,10 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginRight="10dp"
-                            android:background="@drawable/text_link_style"
+                            android:background="@drawable/lock_violet"
                             android:gravity="center"
                             android:text="23"
-                            android:textColor="@color/white"
+                            android:textColor="@android:color/transparent"
                             android:textSize="24sp"
                             android:textStyle="bold" />
                         <!--  .end btn 23 -->
@@ -425,10 +445,10 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginRight="10dp"
-                            android:background="@drawable/text_link_style"
+                            android:background="@drawable/lock_violet"
                             android:gravity="center"
                             android:text="24"
-                            android:textColor="@color/white"
+                            android:textColor="@android:color/transparent"
                             android:textSize="24sp"
                             android:textStyle="bold" />
                         <!--   .end btn 24 -->
@@ -439,10 +459,10 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginRight="10dp"
-                            android:background="@drawable/text_link_style"
+                            android:background="@drawable/lock_violet"
                             android:gravity="center"
                             android:text="25"
-                            android:textColor="@color/white"
+                            android:textColor="@android:color/transparent"
                             android:textSize="24sp"
                             android:textStyle="bold" />
                         <!--   .end btn 25 -->
@@ -463,10 +483,10 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginRight="10dp"
-                            android:background="@drawable/text_link_style"
+                            android:background="@drawable/lock_violet"
                             android:gravity="center"
                             android:text="26"
-                            android:textColor="@color/white"
+                            android:textColor="@android:color/transparent"
                             android:textSize="24sp"
                             android:textStyle="bold" />
                         <!--   .end btn 26 -->
@@ -477,10 +497,10 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginRight="10dp"
-                            android:background="@drawable/text_link_style"
+                            android:background="@drawable/lock_violet"
                             android:gravity="center"
                             android:text="27"
-                            android:textColor="@color/white"
+                            android:textColor="@android:color/transparent"
                             android:textSize="24sp"
                             android:textStyle="bold" />
                         <!--  .end btn 27 -->
@@ -491,10 +511,10 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginRight="10dp"
-                            android:background="@drawable/text_link_style"
+                            android:background="@drawable/lock_violet"
                             android:gravity="center"
                             android:text="28"
-                            android:textColor="@color/white"
+                            android:textColor="@android:color/transparent"
                             android:textSize="24sp"
                             android:textStyle="bold" />
                         <!--  .end btn 28 -->
@@ -505,10 +525,10 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginRight="10dp"
-                            android:background="@drawable/text_link_style"
+                            android:background="@drawable/lock_violet"
                             android:gravity="center"
                             android:text="29"
-                            android:textColor="@color/white"
+                            android:textColor="@android:color/transparent"
                             android:textSize="24sp"
                             android:textStyle="bold" />
                         <!--   .end btn 29 -->
@@ -519,10 +539,10 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginRight="10dp"
-                            android:background="@drawable/text_link_style"
+                            android:background="@drawable/lock_violet"
                             android:gravity="center"
                             android:text="30"
-                            android:textColor="@color/white"
+                            android:textColor="@android:color/transparent"
                             android:textSize="24sp"
                             android:textStyle="bold" />
                         <!--   .end btn 30 -->
@@ -543,10 +563,10 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginRight="10dp"
-                            android:background="@drawable/text_link_style"
+                            android:background="@drawable/lock_red"
                             android:gravity="center"
                             android:text="31"
-                            android:textColor="@color/white"
+                            android:textColor="@android:color/transparent"
                             android:textSize="24sp"
                             android:textStyle="bold" />
                         <!--   .end btn 31 -->
@@ -557,10 +577,10 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginRight="10dp"
-                            android:background="@drawable/text_link_style"
+                            android:background="@drawable/lock_red"
                             android:gravity="center"
                             android:text="32"
-                            android:textColor="@color/white"
+                            android:textColor="@android:color/transparent"
                             android:textSize="24sp"
                             android:textStyle="bold" />
                         <!--  .end btn 32 -->
@@ -571,10 +591,10 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginRight="10dp"
-                            android:background="@drawable/text_link_style"
+                            android:background="@drawable/lock_red"
                             android:gravity="center"
                             android:text="33"
-                            android:textColor="@color/white"
+                            android:textColor="@android:color/transparent"
                             android:textSize="24sp"
                             android:textStyle="bold" />
                         <!--  .end btn 33 -->
@@ -585,10 +605,10 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginRight="10dp"
-                            android:background="@drawable/text_link_style"
+                            android:background="@drawable/lock_red"
                             android:gravity="center"
                             android:text="34"
-                            android:textColor="@color/white"
+                            android:textColor="@android:color/transparent"
                             android:textSize="24sp"
                             android:textStyle="bold" />
                         <!--   .end btn 34 -->
@@ -599,10 +619,10 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginRight="10dp"
-                            android:background="@drawable/text_link_style"
+                            android:background="@drawable/lock_red"
                             android:gravity="center"
                             android:text="35"
-                            android:textColor="@color/white"
+                            android:textColor="@android:color/transparent"
                             android:textSize="24sp"
                             android:textStyle="bold" />
                         <!--   .end btn 35 -->
@@ -623,10 +643,10 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginRight="10dp"
-                            android:background="@drawable/text_link_style"
+                            android:background="@drawable/lock_red"
                             android:gravity="center"
                             android:text="36"
-                            android:textColor="@color/white"
+                            android:textColor="@android:color/transparent"
                             android:textSize="24sp"
                             android:textStyle="bold" />
                         <!--   .end btn 36 -->
@@ -637,10 +657,10 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginRight="10dp"
-                            android:background="@drawable/text_link_style"
+                            android:background="@drawable/lock_red"
                             android:gravity="center"
                             android:text="37"
-                            android:textColor="@color/white"
+                            android:textColor="@android:color/transparent"
                             android:textSize="24sp"
                             android:textStyle="bold" />
                         <!--  .end btn 37 -->
@@ -651,10 +671,10 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginRight="10dp"
-                            android:background="@drawable/text_link_style"
+                            android:background="@drawable/lock_red"
                             android:gravity="center"
                             android:text="38"
-                            android:textColor="@color/white"
+                            android:textColor="@android:color/transparent"
                             android:textSize="24sp"
                             android:textStyle="bold" />
                         <!--  .end btn 38 -->
@@ -665,10 +685,10 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginRight="10dp"
-                            android:background="@drawable/text_link_style"
+                            android:background="@drawable/lock_red"
                             android:gravity="center"
                             android:text="39"
-                            android:textColor="@color/white"
+                            android:textColor="@android:color/transparent"
                             android:textSize="24sp"
                             android:textStyle="bold" />
                         <!--   .end btn 39 -->
@@ -679,15 +699,17 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginRight="10dp"
-                            android:background="@drawable/text_link_style"
+                            android:background="@drawable/lock_red"
                             android:gravity="center"
                             android:text="40"
-                            android:textColor="@color/white"
+                            android:textColor="@android:color/transparent"
                             android:textSize="24sp"
                             android:textStyle="bold" />
                         <!--   .end btn 40 -->
 
-                    </LinearLayout><!--   .edn 8st line for level btn-->
+                    </LinearLayout>
+
+                    <!--   .edn 8st line for level btn-->
 
                     <!--                      9st line for level btn
                     <LinearLayout
@@ -852,25 +874,22 @@
 
                 </LinearLayout><!--   .end container for level btn-->
 
-            </ScrollView><!--   .end scroll container for level btn-->
+            </ScrollView>
 
-            <LinearLayout
-                android:id="@+id/container3"
+            <Button
+                android:id="@+id/btn_back"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="80dp"
+                android:background="@drawable/btn_style"
+                android:text="НАЗАД"
+                android:textColor="#006279" /><!--   .end scroll container for level btn-->
 
-                <Button
-                    android:id="@+id/btn_back"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/btn_style"
-                    android:text="Назад"
+        </LinearLayout>
 
-                    />
-            </LinearLayout>
-        </LinearLayout><!--   end. content container-->
+        <!--   end. content container-->
     </LinearLayout><!--    .end main container-->
 
 </RelativeLayout>

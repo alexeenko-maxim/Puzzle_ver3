@@ -2,23 +2,18 @@ package braingame.amax.puzzle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.TargetApi;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.AttributeSet;
-import android.view.GestureDetector;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.GridView;
 import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Objects;
@@ -26,12 +21,12 @@ import java.util.Random;
 
 public class Level_01 extends AppCompatActivity {
 
-    //--------------------------------------Блок переменных-----------------------------------------
+    //-Блок переменных-//
     private static GestureDetectGridView1 mGridView;
-    public Button btn_play_preview;
-    public Button btn_back_to_game_levels;
-
-    public static Dialog dialogStart;
+    protected Button btn_back_to_gamelevels;
+    protected Button btn_go_next_in_finishDialog;
+    protected int level;
+    protected SharedPreferences save;
     public static Dialog dialogFinish;
     private static final int COLLUMN = 4;
     private static final int DIMENSIONS = COLLUMN * COLLUMN;
@@ -41,54 +36,50 @@ public class Level_01 extends AppCompatActivity {
     public static String LEFT = "left";
     public static String RIGHT = "right";
     private static String[] tileList;
-    //----------------------------------------------------------------------------------------------
+    //-Конец блока переменных-//
 
-    //-------------------------------------ON-CREATED METHOD----------------------------------------
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_01);
-    //--------------------Убираем строку состояния и название активити------------------------------
+        //-Скрытие строки состояния-//
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-    //----------------------------------------------------------------------------------------------
+        //-Конец скрытия строки состояния-//
 
-    //---------------------------------------Блок диалоговых окон-----------------------------------
-        final Dialog dialogStart = new Dialog(this);
-        dialogStart.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialogStart.setContentView(R.layout.activity_level_01_start_dialog);
-        Objects.requireNonNull(dialogStart.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-//        dialogStart.setCancelable(false);
-        btn_play_preview = dialogStart.findViewById(R.id.btn_start_lvl);
-        btn_play_preview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    dialogStart.dismiss();
-                }catch (Exception e) {                }
-            }
-        });
-
-        Dialog dialogFinish = new Dialog(this);
+        //-Финишный диалог-//
+        dialogFinish = new Dialog(this);
         dialogFinish.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialogFinish.setContentView(R.layout.activity_level_01_end_dialog);
+        dialogFinish.setContentView(R.layout.activity_end_level_dialog);
         Objects.requireNonNull(dialogFinish.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-//        dialogFinish.setCancelable(false);
-        btn_play_preview = (Button)dialogFinish.findViewById(R.id.btn_start_lvl);
-        btn_play_preview.setOnClickListener(new View.OnClickListener() {
+        dialogFinish.setCancelable(false);
+        btn_go_next_in_finishDialog = (Button)dialogFinish.findViewById(R.id.btn_go_next_in_finishDialog);
+
+        //-Сохранение данных активности-//
+        save = getSharedPreferences("Save", MODE_PRIVATE);
+        level = save.getInt("Level", 1);
+        //-Конец сохранения данных-//
+
+        btn_go_next_in_finishDialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
-                    Level_01.dialogFinish.dismiss();
+                    dialogFinish.dismiss();
+                    SharedPreferences.Editor editor = save.edit();
+                    editor.putInt("Level", 1);
+                    editor.commit();
+
+                    Intent intent = new Intent(Level_01.this, GameLevels.class);
+                    startActivity(intent);
+                    finish();
                 }catch (Exception e) {               }
             }
         });
-    //----------------------------------------------------------------------------------------------
+        //-Конец финишного диалога-//
 
-    //------------------------------------Блок обработки кнопок-------------------------------------
-
-        btn_back_to_game_levels = (Button)findViewById(R.id.btn_back_lvl_01);
-        btn_back_to_game_levels.setOnClickListener(new View.OnClickListener() {
+        //-Обработка кнопки НАЗАД-//
+        btn_back_to_gamelevels = (Button)findViewById(R.id.btn_back_lvl_01);
+        btn_back_to_gamelevels.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
@@ -98,20 +89,14 @@ public class Level_01 extends AppCompatActivity {
                 }catch (Exception e) {               }
             }
         });
+        //-Конец обработки кнопки назад-//
 
-    //----------------------------------------------------------------------------------------------
-
-
-    //--------------------------------Блок вызова методов-------------------------------------------
-        dialogStart.show();//показать стартовый диалог
-        init();//запустить создание поля
-        scramble();//смешать пазлы
+        init();//-Запустить создание поля-//
+        scramble();//-Смешать пазлы-//
         setDimensions();
-    //----------------------------------------------------------------------------------------------
 
-    }//--Конец ON-CREATED---
+    }//-Конец ON-CREATED-
 
-    //-----------------------------------Блок обьявления методов------------------------------------
 
     private void init() {
 
@@ -122,7 +107,7 @@ public class Level_01 extends AppCompatActivity {
         for (int i = 0; i < DIMENSIONS; i++) {
             tileList[i] = String.valueOf(i);
         }
-    }//метод создающий игровое поле
+    }//-Метод создающий игровое поле
 
     private void scramble() {
         int index;
@@ -135,7 +120,7 @@ public class Level_01 extends AppCompatActivity {
             tileList[index] = tileList[i];
             tileList[i] = temp;
         }
-    }//метод смешивания паззлов в случайном порядке
+    }//-Метод смешивания паззлов в случайном порядке
 
     private void setDimensions() {
         ViewTreeObserver vto = mGridView.getViewTreeObserver();
@@ -155,7 +140,7 @@ public class Level_01 extends AppCompatActivity {
                 display(getApplicationContext());
             }
         });
-    }
+    }//-Метод отслеживания жестов-//
 
     private int getStatusBarHeight (Context context) {
         int result = 0;
@@ -196,84 +181,84 @@ public class Level_01 extends AppCompatActivity {
 
         mGridView.setAdapter(new CustomAdapter(buttons, mColumnWidth, mColumnHeight));
 
-    }//метод отображения графики
+    }//-Метод отображения графики
 
-    public static void swap(Context context, int currentPosition, int swap) throws InterruptedException {
+    public static void swapLvl_01(Context context, int currentPosition, int swap) throws InterruptedException {
         String newPosition = tileList[currentPosition + swap];
         tileList[currentPosition + swap] = tileList[currentPosition];
         tileList[currentPosition] = newPosition;
         display(context);
 
         if (isSolved()) {
-            Toast.makeText(context, "YOU WIN!", Toast.LENGTH_SHORT).show();
-
+//            Toast.makeText(context, "YOU WIN!", Toast.LENGTH_SHORT).show();
+            dialogFinish.show();
         }
-    } //метод передвижения блоков
+    } //-Метод передвижения блоков
 
-    public static void moveTiles(Context context, String direction, int position) throws InterruptedException {
+    public static void moveTilesLvl_01(Context context, String direction, int position) throws InterruptedException {
 
         // Upper-left-corner tile
         if (position == 0) {
 
-            if (direction.equals(RIGHT)) swap(context, position, 1);
-            else if (direction.equals(DOWN)) swap(context, position, COLLUMN);
+            if (direction.equals(RIGHT)) swapLvl_01(context, position, 1);
+            else if (direction.equals(DOWN)) swapLvl_01(context, position, COLLUMN);
             else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
 
             // Upper-center tiles
         } else if (position > 0 && position < COLLUMN - 1) {
-            if (direction.equals(LEFT)) swap(context, position, -1);
-            else if (direction.equals(DOWN)) swap(context, position, COLLUMN);
-            else if (direction.equals(RIGHT)) swap(context, position, 1);
+            if (direction.equals(LEFT)) swapLvl_01(context, position, -1);
+            else if (direction.equals(DOWN)) swapLvl_01(context, position, COLLUMN);
+            else if (direction.equals(RIGHT)) swapLvl_01(context, position, 1);
             else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
 
             // Upper-right-corner tile
         } else if (position == COLLUMN - 1) {
-            if (direction.equals(LEFT)) swap(context, position, -1);
-            else if (direction.equals(DOWN)) swap(context, position, COLLUMN);
+            if (direction.equals(LEFT)) swapLvl_01(context, position, -1);
+            else if (direction.equals(DOWN)) swapLvl_01(context, position, COLLUMN);
             else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
 
             // Left-side tiles
         } else if (position > COLLUMN - 1 && position < DIMENSIONS - COLLUMN &&
                 position % COLLUMN == 0) {
-            if (direction.equals(UP)) swap(context, position, - COLLUMN);
-            else if (direction.equals(RIGHT)) swap(context, position, 1);
-            else if (direction.equals(DOWN)) swap(context, position, COLLUMN);
+            if (direction.equals(UP)) swapLvl_01(context, position, - COLLUMN);
+            else if (direction.equals(RIGHT)) swapLvl_01(context, position, 1);
+            else if (direction.equals(DOWN)) swapLvl_01(context, position, COLLUMN);
             else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
 
             // Right-side AND bottom-right-corner tiles
         } else if (position == COLLUMN * 2 - 1 || position == COLLUMN * 3 - 1) {
-            if (direction.equals(UP)) swap(context, position, - COLLUMN);
-            else if (direction.equals(LEFT)) swap(context, position, -1);
+            if (direction.equals(UP)) swapLvl_01(context, position, - COLLUMN);
+            else if (direction.equals(LEFT)) swapLvl_01(context, position, -1);
             else if (direction.equals(DOWN)) {
 
                 // Tolerates only the right-side tiles to swap downwards as opposed to the bottom-
                 // right-corner tile.
-                if (position <= DIMENSIONS - COLLUMN - 1) swap(context, position,
+                if (position <= DIMENSIONS - COLLUMN - 1) swapLvl_01(context, position,
                         COLLUMN);
                 else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
             } else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
 
             // Bottom-left corner tile
         } else if (position == DIMENSIONS - COLLUMN) {
-            if (direction.equals(UP)) swap(context, position, -COLLUMN);
-            else if (direction.equals(RIGHT)) swap(context, position, 1);
+            if (direction.equals(UP)) swapLvl_01(context, position, -COLLUMN);
+            else if (direction.equals(RIGHT)) swapLvl_01(context, position, 1);
             else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
 
             // Bottom-center tiles
         } else if (position < DIMENSIONS - 1 && position > DIMENSIONS - COLLUMN) {
-            if (direction.equals(UP)) swap(context, position, -COLLUMN);
-            else if (direction.equals(LEFT)) swap(context, position, -1);
-            else if (direction.equals(RIGHT)) swap(context, position, 1);
+            if (direction.equals(UP)) swapLvl_01(context, position, -COLLUMN);
+            else if (direction.equals(LEFT)) swapLvl_01(context, position, -1);
+            else if (direction.equals(RIGHT)) swapLvl_01(context, position, 1);
             else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
 
             // Center tiles
         } else {
-            if (direction.equals(UP)) swap(context, position, -COLLUMN);
-            else if (direction.equals(LEFT)) swap(context, position, -1);
-            else if (direction.equals(RIGHT)) swap(context, position, 1);
-            else swap(context, position, COLLUMN);
+            if (direction.equals(UP)) swapLvl_01(context, position, -COLLUMN);
+            else if (direction.equals(LEFT)) swapLvl_01(context, position, -1);
+            else if (direction.equals(RIGHT)) swapLvl_01(context, position, 1);
+            else swapLvl_01(context, position, COLLUMN);
         }
-    }//логика перестановки блоков
+    }//-Логика перестановки блоков
 
     private static boolean isSolved() {
         boolean solved = false;
@@ -288,10 +273,8 @@ public class Level_01 extends AppCompatActivity {
             }
         }
         return solved;
-    }//условие победы
-    //----------------------------------------------------------------------------------------------
+    }//-Условие победы
 
-
-}//--Конец class Level_01--
+}//-Конец class Level_01-
 
 

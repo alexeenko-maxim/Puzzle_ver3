@@ -2,6 +2,8 @@ package braingame.amax.puzzle;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -20,10 +22,12 @@ import java.util.Random;
 
 public class Level_02 extends AppCompatActivity {
 
-    //--------------------------------------Блок переменных-----------------------------------------
+    //-Блок переменных-//
     private static GestureDetectGridView2 mGridView;
-    public Button btn_play_preview;
-    public static Dialog dialogStart;
+    protected Button btn_back_to_gamelevels;
+    protected Button btn_go_next_in_finishDialog;
+    protected int level;
+    protected SharedPreferences save;
     public static Dialog dialogFinish;
     private static final int COLLUMN = 4;
     private static final int DIMENSIONS = COLLUMN * COLLUMN;
@@ -33,60 +37,59 @@ public class Level_02 extends AppCompatActivity {
     public static String LEFT = "left";
     public static String RIGHT = "right";
     private static String[] tileList;
-    //----------------------------------------------------------------------------------------------
+    //-Конец Блока переменных-//
 
-    //-------------------------------------ON-CREATED METHOD----------------------------------------
-    @Override
+    @Override//-ON-CREATED METHOD-//
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_02);
-    //--------------------Убираем строку состояния и название активити------------------------------
+        //-Скрытие строки состояния-//
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-    //----------------------------------------------------------------------------------------------
+        //-Конец скрытия строки состояния-//
 
-    //---------------------------------------Блок диалоговых окон-----------------------------------
-        Dialog dialogStart = new Dialog(this);
-        dialogStart.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialogStart.setContentView(R.layout.activity_level_02_start_dialog);
-        Objects.requireNonNull(dialogStart.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        dialogStart.setCancelable(false);
-        btn_play_preview = (Button)dialogStart.findViewById(R.id.btn_start_lvl);
-        btn_play_preview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    Level_02.dialogStart.dismiss();
-                }catch (Exception e) {                }
-            }
-        });
-
-        Dialog dialogFinish = new Dialog(this);
+        //-Финишный диалог-//
+        dialogFinish = new Dialog(this);
         dialogFinish.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialogFinish.setContentView(R.layout.activity_level_02_end_dialog);
+        dialogFinish.setContentView(R.layout.activity_end_level_dialog);
         Objects.requireNonNull(dialogFinish.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialogFinish.setCancelable(false);
-        btn_play_preview = (Button)dialogFinish.findViewById(R.id.btn_start_lvl);
-        btn_play_preview.setOnClickListener(new View.OnClickListener() {
+        btn_go_next_in_finishDialog = (Button)dialogFinish.findViewById(R.id.btn_go_next_in_finishDialog);
+
+        //-Сохранение данных активности-//
+        save = getSharedPreferences("Save", MODE_PRIVATE);
+        level = save.getInt("Level", 1);
+        //-Конец сохранения данных-//
+
+        btn_go_next_in_finishDialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
-                    Level_02.dialogFinish.dismiss();
+                    dialogFinish.dismiss();
                 }catch (Exception e) {               }
             }
         });
-    //----------------------------------------------------------------------------------------------
+        //-Конец финишного диалога-//
 
-    //--------------------------------Блок вызова методов-------------------------------------------
-//        dialogStart.show();//показать стартовый диалог
-        init();//запустить создание поля
-        scramble();//смешать пазлы
+        //-Обработка кнопки назад-//
+        btn_back_to_gamelevels = (Button)findViewById(R.id.btn_back_lvl_02);
+        btn_back_to_gamelevels.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    Intent intent = new Intent(Level_02.this, GameLevels.class);
+                    startActivity(intent);
+                    finish();
+                }catch (Exception e) {               }
+            }
+        });
+        //-Конец обработки кнопки назад-//
+
+        init();//-запустить создание поля-//
+        scramble();//-смешать пазлы-//
         setDimensions();
-    //----------------------------------------------------------------------------------------------
 
-    }//--Конец ON-CREATED---
-
-    //-----------------------------------Блок обьявления методов------------------------------------
+    }//-Конец ON-CREATED-//
 
     private void init() {
 
@@ -97,7 +100,7 @@ public class Level_02 extends AppCompatActivity {
         for (int i = 0; i < DIMENSIONS; i++) {
             tileList[i] = String.valueOf(i);
         }
-    }//метод создающий игровое поле
+    }//-метод создающий игровое поле-//
 
     private void scramble() {
         int index;
@@ -110,7 +113,7 @@ public class Level_02 extends AppCompatActivity {
             tileList[index] = tileList[i];
             tileList[i] = temp;
         }
-    }//метод смешивания паззлов в случайном порядке
+    }//-метод смешивания паззлов в случайном порядке-//
 
     private void setDimensions() {
         ViewTreeObserver vto = mGridView.getViewTreeObserver();
@@ -149,31 +152,31 @@ public class Level_02 extends AppCompatActivity {
         for (int i = 0; i < tileList.length; i++) {
             button = new Button(context);
 
-            if (tileList[i].equals("0")) button.setBackgroundResource(R.drawable.lvl_02_img_part_1);
-            else if (tileList[i].equals("1")) button.setBackgroundResource(R.drawable.lvl_02_img_part_2);
-            else if (tileList[i].equals("2")) button.setBackgroundResource(R.drawable.lvl_02_img_part_3);
-            else if (tileList[i].equals("3")) button.setBackgroundResource(R.drawable.lvl_02_img_part_4);
-            else if (tileList[i].equals("4")) button.setBackgroundResource(R.drawable.lvl_02_img_part_5);
-            else if (tileList[i].equals("5")) button.setBackgroundResource(R.drawable.lvl_02_img_part_6);
-            else if (tileList[i].equals("6")) button.setBackgroundResource(R.drawable.lvl_02_img_part_7);
-            else if (tileList[i].equals("7")) button.setBackgroundResource(R.drawable.lvl_02_img_part_8);
-            else if (tileList[i].equals("8")) button.setBackgroundResource(R.drawable.lvl_02_img_part_9);
-            else if (tileList[i].equals("9")) button.setBackgroundResource(R.drawable.lvl_02_img_part_10);
-            else if (tileList[i].equals("10")) button.setBackgroundResource(R.drawable.lvl_02_img_part_11);
-            else if (tileList[i].equals("11")) button.setBackgroundResource(R.drawable.lvl_02_img_part_12);
-            else if (tileList[i].equals("12")) button.setBackgroundResource(R.drawable.lvl_02_img_part_13);
-            else if (tileList[i].equals("13")) button.setBackgroundResource(R.drawable.lvl_02_img_part_14);
-            else if (tileList[i].equals("14")) button.setBackgroundResource(R.drawable.lvl_02_img_part_15);
-            else if (tileList[i].equals("15")) button.setBackgroundResource(R.drawable.lvl_02_img_part_16);
+            if (tileList[i].equals("0")) button.setBackgroundResource(R.drawable.lvl_03_img_part1);
+            else if (tileList[i].equals("1")) button.setBackgroundResource(R.drawable.lvl_03_img_part2);
+            else if (tileList[i].equals("2")) button.setBackgroundResource(R.drawable.lvl_03_img_part3);
+            else if (tileList[i].equals("3")) button.setBackgroundResource(R.drawable.lvl_03_img_part4);
+            else if (tileList[i].equals("4")) button.setBackgroundResource(R.drawable.lvl_03_img_part5);
+            else if (tileList[i].equals("5")) button.setBackgroundResource(R.drawable.lvl_03_img_part6);
+            else if (tileList[i].equals("6")) button.setBackgroundResource(R.drawable.lvl_03_img_part7);
+            else if (tileList[i].equals("7")) button.setBackgroundResource(R.drawable.lvl_03_img_part8);
+            else if (tileList[i].equals("8")) button.setBackgroundResource(R.drawable.lvl_03_img_part9);
+            else if (tileList[i].equals("9")) button.setBackgroundResource(R.drawable.lvl_03_img_part10);
+            else if (tileList[i].equals("10")) button.setBackgroundResource(R.drawable.lvl_03_img_part11);
+            else if (tileList[i].equals("11")) button.setBackgroundResource(R.drawable.lvl_03_img_part12);
+            else if (tileList[i].equals("12")) button.setBackgroundResource(R.drawable.lvl_03_img_part13);
+            else if (tileList[i].equals("13")) button.setBackgroundResource(R.drawable.lvl_03_img_part14);
+            else if (tileList[i].equals("14")) button.setBackgroundResource(R.drawable.lvl_03_img_part15);
+            else if (tileList[i].equals("15")) button.setBackgroundResource(R.drawable.lvl_03_img_part16);
 
             buttons.add(button);
         }
 
         mGridView.setAdapter(new CustomAdapter(buttons, mColumnWidth, mColumnHeight));
 
-    }//метод отображения графики
+    }
 
-    public static void swap(Context context, int currentPosition, int swap) throws InterruptedException {
+    public static void swapLvl_02(Context context, int currentPosition, int swap) throws InterruptedException {
         String newPosition = tileList[currentPosition + swap];
         tileList[currentPosition + swap] = tileList[currentPosition];
         tileList[currentPosition] = newPosition;
@@ -181,74 +184,74 @@ public class Level_02 extends AppCompatActivity {
 
         if (isSolved()) {
             Toast.makeText(context, "YOU WIN!", Toast.LENGTH_SHORT).show();
-
+            dialogFinish.show();
         }
-    } //метод передвижения блоков
+    } //-метод передвижения блоков-//
 
-    public static void moveTiles(Context context, String direction, int position) throws InterruptedException {
+    public static void moveTilesLvl_02(Context context, String direction, int position) throws InterruptedException {
 
         // Upper-left-corner tile
         if (position == 0) {
 
-            if (direction.equals(RIGHT)) swap(context, position, 1);
-            else if (direction.equals(DOWN)) swap(context, position, COLLUMN);
+            if (direction.equals(RIGHT)) swapLvl_02(context, position, 1);
+            else if (direction.equals(DOWN)) swapLvl_02(context, position, COLLUMN);
             else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
 
             // Upper-center tiles
         } else if (position > 0 && position < COLLUMN - 1) {
-            if (direction.equals(LEFT)) swap(context, position, -1);
-            else if (direction.equals(DOWN)) swap(context, position, COLLUMN);
-            else if (direction.equals(RIGHT)) swap(context, position, 1);
+            if (direction.equals(LEFT)) swapLvl_02(context, position, -1);
+            else if (direction.equals(DOWN)) swapLvl_02(context, position, COLLUMN);
+            else if (direction.equals(RIGHT)) swapLvl_02(context, position, 1);
             else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
 
             // Upper-right-corner tile
         } else if (position == COLLUMN - 1) {
-            if (direction.equals(LEFT)) swap(context, position, -1);
-            else if (direction.equals(DOWN)) swap(context, position, COLLUMN);
+            if (direction.equals(LEFT)) swapLvl_02(context, position, -1);
+            else if (direction.equals(DOWN)) swapLvl_02(context, position, COLLUMN);
             else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
 
             // Left-side tiles
         } else if (position > COLLUMN - 1 && position < DIMENSIONS - COLLUMN &&
                 position % COLLUMN == 0) {
-            if (direction.equals(UP)) swap(context, position, - COLLUMN);
-            else if (direction.equals(RIGHT)) swap(context, position, 1);
-            else if (direction.equals(DOWN)) swap(context, position, COLLUMN);
+            if (direction.equals(UP)) swapLvl_02(context, position, - COLLUMN);
+            else if (direction.equals(RIGHT)) swapLvl_02(context, position, 1);
+            else if (direction.equals(DOWN)) swapLvl_02(context, position, COLLUMN);
             else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
 
             // Right-side AND bottom-right-corner tiles
         } else if (position == COLLUMN * 2 - 1 || position == COLLUMN * 3 - 1) {
-            if (direction.equals(UP)) swap(context, position, - COLLUMN);
-            else if (direction.equals(LEFT)) swap(context, position, -1);
+            if (direction.equals(UP)) swapLvl_02(context, position, - COLLUMN);
+            else if (direction.equals(LEFT)) swapLvl_02(context, position, -1);
             else if (direction.equals(DOWN)) {
 
                 // Tolerates only the right-side tiles to swap downwards as opposed to the bottom-
                 // right-corner tile.
-                if (position <= DIMENSIONS - COLLUMN - 1) swap(context, position,
+                if (position <= DIMENSIONS - COLLUMN - 1) swapLvl_02(context, position,
                         COLLUMN);
                 else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
             } else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
 
             // Bottom-left corner tile
         } else if (position == DIMENSIONS - COLLUMN) {
-            if (direction.equals(UP)) swap(context, position, -COLLUMN);
-            else if (direction.equals(RIGHT)) swap(context, position, 1);
+            if (direction.equals(UP)) swapLvl_02(context, position, -COLLUMN);
+            else if (direction.equals(RIGHT)) swapLvl_02(context, position, 1);
             else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
 
             // Bottom-center tiles
         } else if (position < DIMENSIONS - 1 && position > DIMENSIONS - COLLUMN) {
-            if (direction.equals(UP)) swap(context, position, -COLLUMN);
-            else if (direction.equals(LEFT)) swap(context, position, -1);
-            else if (direction.equals(RIGHT)) swap(context, position, 1);
+            if (direction.equals(UP)) swapLvl_02(context, position, -COLLUMN);
+            else if (direction.equals(LEFT)) swapLvl_02(context, position, -1);
+            else if (direction.equals(RIGHT)) swapLvl_02(context, position, 1);
             else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
 
             // Center tiles
         } else {
-            if (direction.equals(UP)) swap(context, position, -COLLUMN);
-            else if (direction.equals(LEFT)) swap(context, position, -1);
-            else if (direction.equals(RIGHT)) swap(context, position, 1);
-            else swap(context, position, COLLUMN);
+            if (direction.equals(UP)) swapLvl_02(context, position, -COLLUMN);
+            else if (direction.equals(LEFT)) swapLvl_02(context, position, -1);
+            else if (direction.equals(RIGHT)) swapLvl_02(context, position, 1);
+            else swapLvl_02(context, position, COLLUMN);
         }
-    }//логика перестановки блоков
+    }//-логика перестановки блоков-//
 
     private static boolean isSolved() {
         boolean solved = false;
@@ -263,8 +266,6 @@ public class Level_02 extends AppCompatActivity {
             }
         }
         return solved;
-    }//условие победы
-    //----------------------------------------------------------------------------------------------
-
+    }//-условие победы-//
 
 }//--Конец class Level_02--

@@ -9,15 +9,9 @@
     </style>
 
     <!--splash theme start-->
-    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
-        <item name="android:windowBackground">@drawable/splash</item>
-    </style>
     <!--splash theme end-->
 
     <!--splash theme start-->
-    <style name="BtnStyle" parent="Theme.AppCompat.NoActionBar">
-        <item name="android:windowBackground">@drawable/btn_style_default</item>
-    </style>
     <!--splash theme end-->
 
 

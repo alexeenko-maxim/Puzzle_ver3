@@ -14,14 +14,14 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:contentDescription="@string/discription_home_screen"
-        android:scaleType="centerCrop"
+        android:scaleType="fitXY"
+        android:src="@drawable/home_bg2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/home_bg2" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <ProgressBar
 

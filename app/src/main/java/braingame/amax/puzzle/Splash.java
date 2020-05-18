@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -49,6 +51,7 @@ public class Splash extends AppCompatActivity {
                     startActivity(intent);
                     // close this activity
                     finish();
+                    System.exit (0);
                 }
             }
         }, 0, period);

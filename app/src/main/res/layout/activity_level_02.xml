@@ -5,7 +5,7 @@
     android:id="@+id/main_container_lvl_02"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="braingame.amax.puzzle.Splash">
+    >
 
 
     <LinearLayout
@@ -37,6 +37,7 @@
                 android:layout_height="wrap_content"
 
                 android:background="@drawable/btn_style"
+                android:textSize="12sp"
                 android:text="@string/btn_back" />
         </LinearLayout>
 
@@ -56,7 +57,7 @@
                 android:gravity="center_horizontal"
                 android:text="@string/level_2"
                 android:textColor="#FFFFFF"
-                android:textSize="18sp" />
+                android:textSize="12sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -66,10 +67,11 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/btn_hint_lvl_02"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/btn_style"
+                android:textSize="12sp"
                 android:text="@string/btn_hint" />
         </LinearLayout>
 

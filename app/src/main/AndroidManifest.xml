@@ -2,20 +2,27 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="braingame.amax.puzzle">
 
-<!--    <uses-permission android:name="android.permission.INTERNET" />-->
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:largeHeap = "true"
+        android:hardwareAccelerated="false"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        >
+
+        <meta-data
+            android:name="com.google.adnroid.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-6829999012626733~5810211480"/>
 
         <!-- Main Activity-->
         <activity
             android:name=".Level_01"
-            android:screenOrientation="fullSensor">
+            android:screenOrientation="nosensor">
             <intent-filter>
 <!--                <action android:name="android.intent.action.MAIN" />-->
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -24,7 +31,7 @@
 
         <activity
             android:name=".Splash"
-            android:screenOrientation="fullSensor">
+            android:screenOrientation="nosensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,7 +41,387 @@
 
         <activity
             android:name=".Level_02"
-            android:screenOrientation="fullSensor">
+            android:screenOrientation="nosensor">
+            <intent-filter>
+                <!--                <action android:name="android.intent.action.MAIN" />-->
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Level_03"
+            android:screenOrientation="nosensor">
+            <intent-filter>
+                <!--                <action android:name="android.intent.action.MAIN" />-->
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Level_04"
+            android:screenOrientation="nosensor">
+            <intent-filter>
+                <!--                <action android:name="android.intent.action.MAIN" />-->
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Level_05"
+            android:screenOrientation="nosensor">
+            <intent-filter>
+                <!--                <action android:name="android.intent.action.MAIN" />-->
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Level_06"
+            android:screenOrientation="nosensor">
+            <intent-filter>
+                <!--                <action android:name="android.intent.action.MAIN" />-->
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Level_07"
+            android:screenOrientation="nosensor">
+            <intent-filter>
+                <!--                <action android:name="android.intent.action.MAIN" />-->
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Level_08"
+            android:screenOrientation="nosensor">
+            <intent-filter>
+                <!--                <action android:name="android.intent.action.MAIN" />-->
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Level_09"
+            android:screenOrientation="nosensor">
+            <intent-filter>
+                <!--                <action android:name="android.intent.action.MAIN" />-->
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Level_010"
+            android:screenOrientation="nosensor">
+            <intent-filter>
+                <!--                <action android:name="android.intent.action.MAIN" />-->
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Level_011"
+            android:screenOrientation="nosensor">
+            <intent-filter>
+                <!--                <action android:name="android.intent.action.MAIN" />-->
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Level_012"
+            android:screenOrientation="nosensor">
+            <intent-filter>
+                <!--                <action android:name="android.intent.action.MAIN" />-->
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Level_013"
+            android:screenOrientation="nosensor">
+            <intent-filter>
+                <!--                <action android:name="android.intent.action.MAIN" />-->
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Level_014"
+            android:screenOrientation="nosensor">
+            <intent-filter>
+                <!--                <action android:name="android.intent.action.MAIN" />-->
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Level_015"
+            android:screenOrientation="nosensor">
+            <intent-filter>
+                <!--                <action android:name="android.intent.action.MAIN" />-->
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Level_016"
+            android:screenOrientation="nosensor">
+            <intent-filter>
+                <!--                <action android:name="android.intent.action.MAIN" />-->
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Level_017"
+            android:screenOrientation="nosensor">
+            <intent-filter>
+                <!--                <action android:name="android.intent.action.MAIN" />-->
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Level_018"
+            android:screenOrientation="nosensor">
+            <intent-filter>
+                <!--                <action android:name="android.intent.action.MAIN" />-->
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Level_019"
+            android:screenOrientation="nosensor">
+            <intent-filter>
+                <!--                <action android:name="android.intent.action.MAIN" />-->
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Level_020"
+            android:screenOrientation="nosensor">
+            <intent-filter>
+                <!--                <action android:name="android.intent.action.MAIN" />-->
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Level_021"
+            android:screenOrientation="nosensor">
+            <intent-filter>
+                <!--                <action android:name="android.intent.action.MAIN" />-->
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Level_022"
+            android:screenOrientation="nosensor">
+            <intent-filter>
+                <!--                <action android:name="android.intent.action.MAIN" />-->
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Level_023"
+            android:screenOrientation="nosensor">
+            <intent-filter>
+                <!--                <action android:name="android.intent.action.MAIN" />-->
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Level_024"
+            android:screenOrientation="nosensor">
+            <intent-filter>
+                <!--                <action android:name="android.intent.action.MAIN" />-->
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Level_025"
+            android:screenOrientation="nosensor">
+            <intent-filter>
+                <!--                <action android:name="android.intent.action.MAIN" />-->
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Level_026"
+            android:screenOrientation="nosensor">
+            <intent-filter>
+                <!--                <action android:name="android.intent.action.MAIN" />-->
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Level_027"
+            android:screenOrientation="nosensor">
+            <intent-filter>
+                <!--                <action android:name="android.intent.action.MAIN" />-->
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Level_028"
+            android:screenOrientation="nosensor">
+            <intent-filter>
+                <!--                <action android:name="android.intent.action.MAIN" />-->
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Level_029"
+            android:screenOrientation="nosensor">
+            <intent-filter>
+                <!--                <action android:name="android.intent.action.MAIN" />-->
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Level_030"
+            android:screenOrientation="nosensor">
+            <intent-filter>
+                <!--                <action android:name="android.intent.action.MAIN" />-->
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Level_031"
+            android:screenOrientation="nosensor">
+            <intent-filter>
+                <!--                <action android:name="android.intent.action.MAIN" />-->
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Level_032"
+            android:screenOrientation="nosensor">
+            <intent-filter>
+                <!--                <action android:name="android.intent.action.MAIN" />-->
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Level_033"
+            android:screenOrientation="nosensor">
+            <intent-filter>
+                <!--                <action android:name="android.intent.action.MAIN" />-->
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Level_034"
+            android:screenOrientation="nosensor">
+            <intent-filter>
+                <!--                <action android:name="android.intent.action.MAIN" />-->
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Level_035"
+            android:screenOrientation="nosensor">
+            <intent-filter>
+                <!--                <action android:name="android.intent.action.MAIN" />-->
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Level_036"
+            android:screenOrientation="nosensor">
+            <intent-filter>
+                <!--                <action android:name="android.intent.action.MAIN" />-->
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Level_037"
+            android:screenOrientation="nosensor">
+            <intent-filter>
+                <!--                <action android:name="android.intent.action.MAIN" />-->
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Level_038"
+            android:screenOrientation="nosensor">
+            <intent-filter>
+                <!--                <action android:name="android.intent.action.MAIN" />-->
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Level_039"
+            android:screenOrientation="nosensor">
+            <intent-filter>
+                <!--                <action android:name="android.intent.action.MAIN" />-->
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Level_040"
+            android:screenOrientation="nosensor">
             <intent-filter>
                 <!--                <action android:name="android.intent.action.MAIN" />-->
 
@@ -44,7 +431,7 @@
 
         <activity
             android:name=".HomePage"
-            android:screenOrientation="fullSensor">
+            android:screenOrientation="nosensor">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
@@ -55,12 +442,17 @@
 
         <activity
             android:name=".GameLevels"
-            android:screenOrientation="fullSensor">
+            android:screenOrientation="nosensor">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
+        <activity
+            android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            />
+        
     </application>
 
 </manifest>

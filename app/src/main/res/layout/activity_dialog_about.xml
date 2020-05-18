@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/black"
     android:orientation="vertical"
-    android:visibility="visible" >
+    android:visibility="visible">
 
     <LinearLayout
         android:id="@+id/wrap_text_container_dialog_about"
@@ -23,17 +23,17 @@
             android:id="@+id/dialog_about_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_margin="5dp"
             android:gravity="center_horizontal"
             android:text="@string/about_text"
             android:textColor="#FFFFFF"
-            android:textSize="18sp" />
+            android:textSize="12sp" />
 
         <Button
             android:id="@+id/btn_close_dialog_about"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_margin="10dp"
             android:background="@drawable/btn_style"
             android:text="@string/close" />
 

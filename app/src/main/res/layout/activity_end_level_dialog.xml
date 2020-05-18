@@ -27,7 +27,7 @@
             android:gravity="center_horizontal"
             android:text="@string/dialog_finish_text"
             android:textColor="#FFFFFF"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
 
         <Button
             android:id="@+id/btn_go_next_in_finishDialog"

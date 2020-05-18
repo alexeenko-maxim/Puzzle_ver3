@@ -1,0 +1,65 @@
+<resources>
+    <string name="app_name">Собирашки</string>
+    <string name="btn_play">ИГРАТЬ</string>
+    <string name="btn_about">О ИГРЕ</string>
+    <string name="btn_exit">ВЫХОД</string>
+    <string name="btn_back">НАЗАД</string>
+    <string name="btn_hint">ПОДСКАЗКА</string>
+    <string name="select_level">ВЫБОР УРОВНЯ</string>
+
+    <string name="dialog_finish_btn_text">ПРОДОЛЖИТЬ</string>
+    <string name="loading">Загрузка...</string>
+    <string name="level_1">УРОВЕНЬ: 1</string>
+    <string name="level_2">УРОВЕНЬ: 2</string>
+    <string name="level_3">УРОВЕНЬ: 3</string>
+    <string name="level_4">УРОВЕНЬ: 4</string>
+    <string name="level_5">УРОВЕНЬ: 5</string>
+    <string name="level_6">УРОВЕНЬ: 6</string>
+    <string name="level_7">УРОВЕНЬ: 7</string>
+    <string name="level_8">УРОВЕНЬ: 8</string>
+    <string name="level_9">УРОВЕНЬ: 9</string>
+    <string name="level_10">УРОВЕНЬ: 10</string>
+    <string name="level_11">УРОВЕНЬ: 11</string>
+    <string name="level_12">УРОВЕНЬ: 12</string>
+    <string name="level_13">УРОВЕНЬ: 13</string>
+    <string name="level_14">УРОВЕНЬ: 14</string>
+    <string name="level_15">УРОВЕНЬ: 15</string>
+    <string name="level_16">УРОВЕНЬ: 16</string>
+    <string name="level_17">УРОВЕНЬ: 17</string>
+    <string name="level_18">УРОВЕНЬ: 18</string>
+    <string name="level_19">УРОВЕНЬ: 19</string>
+    <string name="level_20">УРОВЕНЬ: 20</string>
+    <string name="level_21">УРОВЕНЬ: 21</string>
+    <string name="level_22">УРОВЕНЬ: 22</string>
+    <string name="level_23">УРОВЕНЬ: 23</string>
+    <string name="level_24">УРОВЕНЬ: 24</string>
+    <string name="level_25">УРОВЕНЬ: 25</string>
+    <string name="level_26">УРОВЕНЬ: 26</string>
+    <string name="level_27">УРОВЕНЬ: 27</string>
+    <string name="level_28">УРОВЕНЬ: 28</string>
+    <string name="level_29">УРОВЕНЬ: 29</string>
+    <string name="level_30">УРОВЕНЬ: 30</string>
+    <string name="level_31">УРОВЕНЬ: 31</string>
+    <string name="level_32">УРОВЕНЬ: 32</string>
+    <string name="level_33">УРОВЕНЬ: 33</string>
+    <string name="level_34">УРОВЕНЬ: 34</string>
+    <string name="level_35">УРОВЕНЬ: 35</string>
+    <string name="level_36">УРОВЕНЬ: 36</string>
+    <string name="level_37">УРОВЕНЬ: 37</string>
+    <string name="level_38">УРОВЕНЬ: 38</string>
+    <string name="level_39">УРОВЕНЬ: 39</string>
+    <string name="level_40">УРОВЕНЬ: 40</string>
+    <string name="dialog_finish_text">Уровень пройден. Поздравляем!!!\n\nВы разблокировали следующий уровень </string>
+    <string name="dialog_overGame">Поздравляем!\n\nВы прошли всю игру и разблокировали все уровени.\n\n Скоро выйдет вторая часть игры Собирашки. В ней еще больше уровней и картинок. Вы получите уведомления о выходе игры. \n\nДо новых встреч! </string>
+    <string name="close">ЗАКРЫТЬ</string>
+    <string name="about_text">Детская Игра \"СОБИРАШКИ\"\n\nИгра очень похожа на игру "Пазлы".\n\nВ процессе игры вам предстоит складывать из маленьких кусочков целую картинку.
+    \n\nВ игре 40 уровней которые открываются по мере завершения предыдущих.
+    \n\nПриятной игры!</string>
+
+
+    <string name="discription_home_screen">home_screen_bg_image</string>
+    <string name="discription_hint">hint_screen_bg_image</string>
+
+
+
+</resources>

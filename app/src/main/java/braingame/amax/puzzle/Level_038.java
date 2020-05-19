@@ -296,20 +296,20 @@ public class Level_038 extends AppCompatActivity {
 
             if (direction.equals(RIGHT)) swapLvl_038(context, position, 1);
             else if (direction.equals(DOWN)) swapLvl_038(context, position, COLLUMN);
-            else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
+            //else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
 
             // Upper-center tiles
         } else if (position > 0 && position < COLLUMN - 1) {
             if (direction.equals(LEFT)) swapLvl_038(context, position, -1);
             else if (direction.equals(DOWN)) swapLvl_038(context, position, COLLUMN);
             else if (direction.equals(RIGHT)) swapLvl_038(context, position, 1);
-            else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
+            //else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
 
             // Upper-right-corner tile
         } else if (position == COLLUMN - 1) {
             if (direction.equals(LEFT)) swapLvl_038(context, position, -1);
             else if (direction.equals(DOWN)) swapLvl_038(context, position, COLLUMN);
-            else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
+            //else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
 
             // Left-side tiles
         } else if (position > COLLUMN - 1 && position < DIMENSIONS - COLLUMN &&
@@ -317,7 +317,7 @@ public class Level_038 extends AppCompatActivity {
             if (direction.equals(UP)) swapLvl_038(context, position, - COLLUMN);
             else if (direction.equals(RIGHT)) swapLvl_038(context, position, 1);
             else if (direction.equals(DOWN)) swapLvl_038(context, position, COLLUMN);
-            else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
+            //else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
 
             // Right-side AND bottom-right-corner tiles
         } else if (position == COLLUMN * 2 - 1 || position == COLLUMN * 3 - 1) {

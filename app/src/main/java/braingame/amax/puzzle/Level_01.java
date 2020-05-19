@@ -276,20 +276,20 @@ public class Level_01 extends AppCompatActivity {
 
             if (direction.equals(RIGHT)) swapLvl_01(context, position, 1);
             else if (direction.equals(DOWN)) swapLvl_01(context, position, COLLUMN);
-            else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
+            //else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
 
             // Upper-center tiles
         } else if (position > 0 && position < COLLUMN - 1) {
             if (direction.equals(LEFT)) swapLvl_01(context, position, -1);
             else if (direction.equals(DOWN)) swapLvl_01(context, position, COLLUMN);
             else if (direction.equals(RIGHT)) swapLvl_01(context, position, 1);
-            else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
+            //else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
 
             // Upper-right-corner tile
         } else if (position == COLLUMN - 1) {
             if (direction.equals(LEFT)) swapLvl_01(context, position, -1);
             else if (direction.equals(DOWN)) swapLvl_01(context, position, COLLUMN);
-            else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
+            //else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
 
             // Left-side tiles
         } else if (position > COLLUMN - 1 && position < DIMENSIONS - COLLUMN &&
@@ -297,7 +297,7 @@ public class Level_01 extends AppCompatActivity {
             if (direction.equals(UP)) swapLvl_01(context, position, - COLLUMN);
             else if (direction.equals(RIGHT)) swapLvl_01(context, position, 1);
             else if (direction.equals(DOWN)) swapLvl_01(context, position, COLLUMN);
-            else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
+            //else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
 
             // Right-side AND bottom-right-corner tiles
         } else if (position == COLLUMN * 2 - 1 || position == COLLUMN * 3 - 1) {
@@ -309,21 +309,21 @@ public class Level_01 extends AppCompatActivity {
                 // right-corner tile.
                 if (position <= DIMENSIONS - COLLUMN - 1) swapLvl_01(context, position,
                         COLLUMN);
-                else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
-            } else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
+                //else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
+            } //else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
 
             // Bottom-left corner tile
         } else if (position == DIMENSIONS - COLLUMN) {
             if (direction.equals(UP)) swapLvl_01(context, position, -COLLUMN);
             else if (direction.equals(RIGHT)) swapLvl_01(context, position, 1);
-            else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
+            //else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
 
             // Bottom-center tiles
         } else if (position < DIMENSIONS - 1 && position > DIMENSIONS - COLLUMN) {
             if (direction.equals(UP)) swapLvl_01(context, position, -COLLUMN);
             else if (direction.equals(LEFT)) swapLvl_01(context, position, -1);
             else if (direction.equals(RIGHT)) swapLvl_01(context, position, 1);
-            else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
+            //else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
 
             // Center tiles
         } else {

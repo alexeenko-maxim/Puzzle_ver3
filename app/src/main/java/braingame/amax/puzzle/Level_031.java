@@ -296,14 +296,14 @@ public class Level_031 extends AppCompatActivity {
 
             if (direction.equals(RIGHT)) swapLvl_031(context, position, 1);
             else if (direction.equals(DOWN)) swapLvl_031(context, position, COLLUMN);
-            else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
+            //else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
 
             // Upper-center tiles
         } else if (position > 0 && position < COLLUMN - 1) {
             if (direction.equals(LEFT)) swapLvl_031(context, position, -1);
             else if (direction.equals(DOWN)) swapLvl_031(context, position, COLLUMN);
             else if (direction.equals(RIGHT)) swapLvl_031(context, position, 1);
-            else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
+            //else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
 
             // Upper-right-corner tile
         } else if (position == COLLUMN - 1) {

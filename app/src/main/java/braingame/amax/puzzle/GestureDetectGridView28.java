@@ -1,5 +1,6 @@
 package braingame.amax.puzzle;
 
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
@@ -123,6 +124,7 @@ public class GestureDetectGridView28 extends GridView {
     return super.onInterceptTouchEvent(ev);
 }
 
+@SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
         return gDetector.onTouchEvent(ev);
@@ -134,12 +136,6 @@ class CustomAdapter28 extends BaseAdapter {
 
     private ArrayList<Button> mButtons;
     private int mColumnWidth, mColumnHeight;
-
-    public CustomAdapter28(ArrayList<Button> buttons, int columnWidth, int columnHeight) {
-        mButtons = buttons;
-        mColumnWidth = columnWidth;
-        mColumnHeight = columnHeight;
-    }
 
     @Override
     public int getCount() {

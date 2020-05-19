@@ -48,6 +48,46 @@
     <string name="level_38">УРОВЕНЬ: 38</string>
     <string name="level_39">УРОВЕНЬ: 39</string>
     <string name="level_40">УРОВЕНЬ: 40</string>
+    <string name="text_1">1</string>
+    <string name="text_2">2</string>
+    <string name="text_3">3</string>
+    <string name="text_4">4</string>
+    <string name="text_5">5</string>
+    <string name="text_6">6</string>
+    <string name="text_7">7</string>
+    <string name="text_8">8</string>
+    <string name="text_9">9</string>
+    <string name="text_10">10</string>
+    <string name="text_11">11</string>
+    <string name="text_12">12</string>
+    <string name="text_13">13</string>
+    <string name="text_14">14</string>
+    <string name="text_15">15</string>
+    <string name="text_16">16</string>
+    <string name="text_17">17</string>
+    <string name="text_18">18</string>
+    <string name="text_19">19</string>
+    <string name="text_20">20</string>
+    <string name="text_21">21</string>
+    <string name="text_22">22</string>
+    <string name="text_23">23</string>
+    <string name="text_24">24</string>
+    <string name="text_25">25</string>
+    <string name="text_26">26</string>
+    <string name="text_27">27</string>
+    <string name="text_28">28</string>
+    <string name="text_29">29</string>
+    <string name="text_30">30</string>
+    <string name="text_31">31</string>
+    <string name="text_32">32</string>
+    <string name="text_33">33</string>
+    <string name="text_34">34</string>
+    <string name="text_35">35</string>
+    <string name="text_36">36</string>
+    <string name="text_37">37</string>
+    <string name="text_38">38</string>
+    <string name="text_39">39</string>
+    <string name="text_40">40</string>
     <string name="dialog_finish_text">Уровень пройден. Поздравляем!!!\n\nВы разблокировали следующий уровень </string>
     <string name="dialog_overGame">Поздравляем!\n\nВы прошли всю игру и разблокировали все уровени.\n\n Скоро выйдет вторая часть игры Собирашки. В ней еще больше уровней и картинок. Вы получите уведомления о выходе игры. \n\nДо новых встреч! </string>
     <string name="close">ЗАКРЫТЬ</string>
@@ -56,6 +96,8 @@
     \n\nПриятной игры!</string>
     <string name="discription_home_screen">home_screen_bg_image</string>
     <string name="discription_hint">hint_screen_bg_image</string>
+    <string name="discription_game_level">hint_screen_bg_image</string>
+    <string name="discription_splash">hint_screen_bg_image</string>
 
 
 

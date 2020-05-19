@@ -5,7 +5,7 @@
     android:id="@+id/activity_splash"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@android:color/white"
     tools:context="braingame.amax.puzzle.Splash">
 
 
@@ -13,7 +13,7 @@
         android:id="@+id/bg_splash_screen"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/discription_home_screen"
+        android:contentDescription="@string/discription_splash"
         android:scaleType="fitXY"
         android:src="@drawable/home_bg2"
         app:layout_constraintBottom_toBottomOf="parent"

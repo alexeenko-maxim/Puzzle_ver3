@@ -1,5 +1,6 @@
 package braingame.amax.puzzle;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ProgressBar;
@@ -34,9 +35,10 @@ public class Splash extends AppCompatActivity {
                 //this repeats every 100 ms
                 if (i<100){
                     runOnUiThread(new Runnable() {
+                        @SuppressLint("SetTextI18n")
                         @Override
                         public void run() {
-                            textView.setText(String.valueOf(i)+"%");
+                            textView.setText(i +"%");
                         }
                     });
                     progressBar.setProgress(i);

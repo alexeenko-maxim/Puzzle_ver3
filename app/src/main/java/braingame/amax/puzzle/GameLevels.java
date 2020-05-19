@@ -43,7 +43,7 @@ public class GameLevels extends AppCompatActivity {
                     startActivity(intent);
                     finish();
 
-                } catch (Exception e) {
+                } catch (Exception ignored) {
 
                 }
             }
@@ -91,10 +91,9 @@ public class GameLevels extends AppCompatActivity {
                     startActivity(intent1);
                     finish();
                     System.exit (0);
-                    }else {
-                        //none
-                    }
-                } catch (Exception e) {
+                    } //none
+
+                } catch (Exception ignored) {
                 }
             }
         });
@@ -113,7 +112,7 @@ public class GameLevels extends AppCompatActivity {
                     System.exit (0);
                     }else { }
 
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
             }
         });
@@ -131,7 +130,7 @@ public class GameLevels extends AppCompatActivity {
                         finish();
                     System.exit (0);
                     }else { }
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
             }
         });
@@ -149,7 +148,7 @@ public class GameLevels extends AppCompatActivity {
                         finish();
                     System.exit (0);
                     }else { }
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
             }
         });
@@ -167,7 +166,7 @@ public class GameLevels extends AppCompatActivity {
                         finish();
                     System.exit (0);
                     }
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
             }
         });
@@ -185,7 +184,7 @@ public class GameLevels extends AppCompatActivity {
                         finish();
                     System.exit (0);
                     }
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
             }
         });
@@ -203,7 +202,7 @@ public class GameLevels extends AppCompatActivity {
                         finish();
                     System.exit (0);
                     }
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
             }
         });
@@ -221,7 +220,7 @@ public class GameLevels extends AppCompatActivity {
                         finish();
                     System.exit (0);
                     }
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
             }
         });
@@ -239,7 +238,7 @@ public class GameLevels extends AppCompatActivity {
                         finish();
                     System.exit (0);
                     }
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
             }
         });
@@ -257,7 +256,7 @@ public class GameLevels extends AppCompatActivity {
                         finish();
                     System.exit (0);
                     }
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
             }
         });
@@ -275,7 +274,7 @@ public class GameLevels extends AppCompatActivity {
                         finish();
                     System.exit (0);
                     }
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
             }
         });
@@ -293,7 +292,7 @@ public class GameLevels extends AppCompatActivity {
                         finish();
                     System.exit (0);
                     }
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
             }
         });
@@ -311,7 +310,7 @@ public class GameLevels extends AppCompatActivity {
                         finish();
                     System.exit (0);
                     }
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
             }
         });
@@ -329,7 +328,7 @@ public class GameLevels extends AppCompatActivity {
                         finish();
                     System.exit (0);
                     }
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
             }
         });
@@ -347,7 +346,7 @@ public class GameLevels extends AppCompatActivity {
                         finish();
                     System.exit (0);
                     }
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
             }
         });
@@ -365,7 +364,7 @@ public class GameLevels extends AppCompatActivity {
                         finish();
                     System.exit (0);
                     }
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
             }
         });
@@ -383,7 +382,7 @@ public class GameLevels extends AppCompatActivity {
                         finish();
                     System.exit (0);
                     }
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
             }
         });
@@ -401,7 +400,7 @@ public class GameLevels extends AppCompatActivity {
                         finish();
                     System.exit (0);
                     }
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
             }
         });
@@ -419,7 +418,7 @@ public class GameLevels extends AppCompatActivity {
                         finish();
                     System.exit (0);
                     }
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
             }
         });
@@ -437,7 +436,7 @@ public class GameLevels extends AppCompatActivity {
                         finish();
                     System.exit (0);
                     }
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
             }
         });
@@ -455,7 +454,7 @@ public class GameLevels extends AppCompatActivity {
                         finish();
                     System.exit (0);
                     }
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
             }
         });
@@ -473,7 +472,7 @@ public class GameLevels extends AppCompatActivity {
                         finish();
                     System.exit (0);
                     }
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
             }
         });
@@ -491,7 +490,7 @@ public class GameLevels extends AppCompatActivity {
                         finish();
                     System.exit (0);
                     }
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
             }
         });
@@ -509,7 +508,7 @@ public class GameLevels extends AppCompatActivity {
                         finish();
                     System.exit (0);
                     }
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
             }
         });
@@ -527,7 +526,7 @@ public class GameLevels extends AppCompatActivity {
                         finish();
                     System.exit (0);
                     }
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
             }
         });
@@ -545,7 +544,7 @@ public class GameLevels extends AppCompatActivity {
                         finish();
                     System.exit (0);
                     }
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
             }
         });
@@ -563,7 +562,7 @@ public class GameLevels extends AppCompatActivity {
                         finish();
                     System.exit (0);
                     }
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
             }
         });
@@ -581,7 +580,7 @@ public class GameLevels extends AppCompatActivity {
                         finish();
                     System.exit (0);
                     }
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
             }
         });
@@ -599,7 +598,7 @@ public class GameLevels extends AppCompatActivity {
                         finish();
                     System.exit (0);
                     }
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
             }
         });
@@ -617,7 +616,7 @@ public class GameLevels extends AppCompatActivity {
                         finish();
                     System.exit (0);
                     }
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
             }
         });
@@ -635,7 +634,7 @@ public class GameLevels extends AppCompatActivity {
                         finish();
                     System.exit (0);
                     }
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
             }
         });
@@ -653,7 +652,7 @@ public class GameLevels extends AppCompatActivity {
                         finish();
                     System.exit (0);
                     }
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
             }
         });
@@ -671,7 +670,7 @@ public class GameLevels extends AppCompatActivity {
                         finish();
                     System.exit (0);
                     }
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
             }
         });
@@ -689,7 +688,7 @@ public class GameLevels extends AppCompatActivity {
                         finish();
                     System.exit (0);
                     }
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
             }
         });
@@ -707,7 +706,7 @@ public class GameLevels extends AppCompatActivity {
                         finish();
                     System.exit (0);
                     }
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
             }
         });
@@ -725,7 +724,7 @@ public class GameLevels extends AppCompatActivity {
                         finish();
                     System.exit (0);
                     }
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
             }
         });
@@ -743,7 +742,7 @@ public class GameLevels extends AppCompatActivity {
                         finish();
                     System.exit (0);
                     }
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
             }
         });
@@ -761,7 +760,7 @@ public class GameLevels extends AppCompatActivity {
                         finish();
                     System.exit (0);
                     }
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
             }
         });
@@ -779,7 +778,7 @@ public class GameLevels extends AppCompatActivity {
                         finish();
                     System.exit (0);
                     }
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
             }
         });
@@ -797,7 +796,7 @@ public class GameLevels extends AppCompatActivity {
                         finish();
                     System.exit (0);
                     }
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
             }
         });
@@ -862,7 +861,7 @@ public class GameLevels extends AppCompatActivity {
             startActivity(intent);
             finish();
                     System.exit (0);
-        } catch (Exception e) {
+        } catch (Exception ignored) {
 
         }
     }

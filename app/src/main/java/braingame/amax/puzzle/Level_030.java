@@ -72,7 +72,7 @@ public class Level_030 extends AppCompatActivity {
                     startActivity(intent);
                     finish();
 
-                } catch (Exception e) {
+                } catch (Exception ignored) {
 
                 }
             }
@@ -113,7 +113,7 @@ public class Level_030 extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                     System.exit (0);
-                }catch (Exception e) {               }
+                }catch (Exception ignored) {               }
             }
         });
         //-Конец финишного диалога-//
@@ -140,7 +140,7 @@ public class Level_030 extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     hint.show();
-                }catch (Exception e) {               }
+                }catch (Exception ignored) {               }
             }
         });
         //-Конец обработки кнопки Закрыть подсказку-//
@@ -161,7 +161,7 @@ public class Level_030 extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                     System.exit (0);
-                }catch (Exception e) {               }
+                }catch (Exception ignored) {               }
             }
         });
         //-Конец обработки кнопки назад-//
@@ -230,34 +230,34 @@ public class Level_030 extends AppCompatActivity {
         ArrayList<Button> buttons = new ArrayList<>();
         Button button;
 
-        for (int i = 0; i < tileList.length; i++) {
+        for (String s : tileList) {
             button = new Button(context);
 
-            if (tileList[i].equals("0")) button.setBackgroundResource(R.drawable.lvl_30_img_part1);
-            else if (tileList[i].equals("1")) button.setBackgroundResource(R.drawable.lvl_30_img_part2);
-            else if (tileList[i].equals("2")) button.setBackgroundResource(R.drawable.lvl_30_img_part3);
-            else if (tileList[i].equals("3")) button.setBackgroundResource(R.drawable.lvl_30_img_part4);
-            else if (tileList[i].equals("4")) button.setBackgroundResource(R.drawable.lvl_30_img_part5);
-            else if (tileList[i].equals("5")) button.setBackgroundResource(R.drawable.lvl_30_img_part6);
-            else if (tileList[i].equals("6")) button.setBackgroundResource(R.drawable.lvl_30_img_part7);
-            else if (tileList[i].equals("7")) button.setBackgroundResource(R.drawable.lvl_30_img_part8);
-            else if (tileList[i].equals("8")) button.setBackgroundResource(R.drawable.lvl_30_img_part9);
-            else if (tileList[i].equals("9")) button.setBackgroundResource(R.drawable.lvl_30_img_part10);
-            else if (tileList[i].equals("10")) button.setBackgroundResource(R.drawable.lvl_30_img_part11);
-            else if (tileList[i].equals("11")) button.setBackgroundResource(R.drawable.lvl_30_img_part12);
-            else if (tileList[i].equals("12")) button.setBackgroundResource(R.drawable.lvl_30_img_part13);
-            else if (tileList[i].equals("13")) button.setBackgroundResource(R.drawable.lvl_30_img_part14);
-            else if (tileList[i].equals("14")) button.setBackgroundResource(R.drawable.lvl_30_img_part15);
-            else if (tileList[i].equals("15")) button.setBackgroundResource(R.drawable.lvl_30_img_part16);
-            else if (tileList[i].equals("16")) button.setBackgroundResource(R.drawable.lvl_30_img_part17);
-            else if (tileList[i].equals("17")) button.setBackgroundResource(R.drawable.lvl_30_img_part18);
-            else if (tileList[i].equals("18")) button.setBackgroundResource(R.drawable.lvl_30_img_part19);
-            else if (tileList[i].equals("19")) button.setBackgroundResource(R.drawable.lvl_30_img_part20);
-            else if (tileList[i].equals("20")) button.setBackgroundResource(R.drawable.lvl_30_img_part21);
-            else if (tileList[i].equals("21")) button.setBackgroundResource(R.drawable.lvl_30_img_part22);
-            else if (tileList[i].equals("22")) button.setBackgroundResource(R.drawable.lvl_30_img_part23);
-            else if (tileList[i].equals("23")) button.setBackgroundResource(R.drawable.lvl_30_img_part24);
-            else if (tileList[i].equals("24")) button.setBackgroundResource(R.drawable.lvl_30_img_part25);
+            if (s.equals("0")) button.setBackgroundResource(R.drawable.lvl_30_img_part1);
+            else if (s.equals("1")) button.setBackgroundResource(R.drawable.lvl_30_img_part2);
+            else if (s.equals("2")) button.setBackgroundResource(R.drawable.lvl_30_img_part3);
+            else if (s.equals("3")) button.setBackgroundResource(R.drawable.lvl_30_img_part4);
+            else if (s.equals("4")) button.setBackgroundResource(R.drawable.lvl_30_img_part5);
+            else if (s.equals("5")) button.setBackgroundResource(R.drawable.lvl_30_img_part6);
+            else if (s.equals("6")) button.setBackgroundResource(R.drawable.lvl_30_img_part7);
+            else if (s.equals("7")) button.setBackgroundResource(R.drawable.lvl_30_img_part8);
+            else if (s.equals("8")) button.setBackgroundResource(R.drawable.lvl_30_img_part9);
+            else if (s.equals("9")) button.setBackgroundResource(R.drawable.lvl_30_img_part10);
+            else if (s.equals("10")) button.setBackgroundResource(R.drawable.lvl_30_img_part11);
+            else if (s.equals("11")) button.setBackgroundResource(R.drawable.lvl_30_img_part12);
+            else if (s.equals("12")) button.setBackgroundResource(R.drawable.lvl_30_img_part13);
+            else if (s.equals("13")) button.setBackgroundResource(R.drawable.lvl_30_img_part14);
+            else if (s.equals("14")) button.setBackgroundResource(R.drawable.lvl_30_img_part15);
+            else if (s.equals("15")) button.setBackgroundResource(R.drawable.lvl_30_img_part16);
+            else if (s.equals("16")) button.setBackgroundResource(R.drawable.lvl_30_img_part17);
+            else if (s.equals("17")) button.setBackgroundResource(R.drawable.lvl_30_img_part18);
+            else if (s.equals("18")) button.setBackgroundResource(R.drawable.lvl_30_img_part19);
+            else if (s.equals("19")) button.setBackgroundResource(R.drawable.lvl_30_img_part20);
+            else if (s.equals("20")) button.setBackgroundResource(R.drawable.lvl_30_img_part21);
+            else if (s.equals("21")) button.setBackgroundResource(R.drawable.lvl_30_img_part22);
+            else if (s.equals("22")) button.setBackgroundResource(R.drawable.lvl_30_img_part23);
+            else if (s.equals("23")) button.setBackgroundResource(R.drawable.lvl_30_img_part24);
+            else if (s.equals("24")) button.setBackgroundResource(R.drawable.lvl_30_img_part25);
 
             buttons.add(button);
         }
@@ -266,7 +266,7 @@ public class Level_030 extends AppCompatActivity {
 
     }
 
-    public static void swapLvl_030(Context context, int currentPosition, int swap) throws InterruptedException {
+    public static void swapLvl_030(Context context, int currentPosition, int swap) {
         String newPosition = tileList[currentPosition + swap];
         tileList[currentPosition + swap] = tileList[currentPosition];
         tileList[currentPosition] = newPosition;

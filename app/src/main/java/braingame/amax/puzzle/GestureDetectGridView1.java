@@ -1,5 +1,6 @@
 package braingame.amax.puzzle;
 
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
@@ -130,6 +131,7 @@ public class GestureDetectGridView1 extends GridView {
     return super.onInterceptTouchEvent(ev);
 }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
         return gDetector.onTouchEvent(ev);

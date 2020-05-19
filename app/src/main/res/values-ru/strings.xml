@@ -6,7 +6,6 @@
     <string name="btn_back">НАЗАД</string>
     <string name="btn_hint">ПОДСКАЗКА</string>
     <string name="select_level">ВЫБОР УРОВНЯ</string>
-
     <string name="dialog_finish_btn_text">ПРОДОЛЖИТЬ</string>
     <string name="loading">Загрузка...</string>
     <string name="level_1">УРОВЕНЬ: 1</string>
@@ -55,8 +54,6 @@
     <string name="about_text">Детская Игра \"СОБИРАШКИ\"\n\nИгра очень похожа на игру "Пазлы".\n\nВ процессе игры вам предстоит складывать из маленьких кусочков целую картинку.
     \n\nВ игре 40 уровней которые открываются по мере завершения предыдущих.
     \n\nПриятной игры!</string>
-
-
     <string name="discription_home_screen">home_screen_bg_image</string>
     <string name="discription_hint">hint_screen_bg_image</string>
 

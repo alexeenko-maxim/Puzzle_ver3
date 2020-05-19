@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-
-
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -23,7 +21,6 @@ public class Splash extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-
         //-Создание прогресс бара-//
         progressBar=(ProgressBar)findViewById(R.id.progressBar);
         progressBar.setProgress(0);
@@ -57,5 +54,4 @@ public class Splash extends AppCompatActivity {
         }, 0, period);
         //-Конец создание прогресс бара-//
     }
-
 }

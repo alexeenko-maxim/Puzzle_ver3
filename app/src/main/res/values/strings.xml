@@ -54,11 +54,6 @@
     <string name="about_text">Сhildrens game \"ImgCollector\"\n\nThe game is similar to Puzzle.\n\nDuring the game you have to collect parts of the images.
     \n\nThe game has 40 levels. Levels are opened after completing the previous levels.
     \n\nHave a nice game!</string>
-
-
     <string name="discription_home_screen">home_screen_bg_image</string>
     <string name="discription_hint">hint_screen_bg_image</string>
-
-
-
 </resources>

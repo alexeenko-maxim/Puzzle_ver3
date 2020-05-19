@@ -16,12 +16,10 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
-
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
-
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Random;
@@ -52,7 +50,6 @@ public class Level_01 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_01);
-
         //-Рекламный блок-//
         MobileAds.initialize(this, "ca-app-pub-6829999012626733~5810211480");
         interstitialAd = new InterstitialAd(this);
@@ -71,10 +68,7 @@ public class Level_01 extends AppCompatActivity {
                     Intent intent = new Intent(Level_01.this, GameLevels.class);
                     startActivity(intent);
                     finish();
-
-                } catch (Exception e) {
-
-                }
+                } catch (Exception ignored) {                }
             }
         });
         //-Конец закрытия рекламы на крестик-//

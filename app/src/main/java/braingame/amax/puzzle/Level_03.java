@@ -27,25 +27,20 @@ import java.util.Random;
 
 public class Level_03 extends AppCompatActivity {
 
-    //-Блок переменных-//
-    protected Button btn_close_hint;
-    protected Button btn_openHint;
-    public Dialog hint;
-    protected SharedPreferences save;
+    private Dialog hint;
+    private SharedPreferences save;
     private static GestureDetectGridView3 mGridView;
-    public Button btn_back_to_game_levels;
-    public Button btn_go_next_in_finishDialog;
 
-    public static Dialog dialogFinish;
+    private static Dialog dialogFinish;
     private static final int COLLUMN = 3;
     private static final int DIMENSIONS = COLLUMN * COLLUMN;
     private static int mColumnWidth, mColumnHeight;
-    public static String UP = "up";
-    public static String DOWN = "down";
-    public static String LEFT = "left";
-    public static String RIGHT = "right";
+    public static final String UP = "up";
+    public static final String DOWN = "down";
+    public static final String LEFT = "left";
+    public static final String RIGHT = "right";
     private static String[] tileList;
-    public InterstitialAd interstitialAd;
+    private InterstitialAd interstitialAd;
     //-Конец Блока переменных-//
 
     @Override//-ON-CREATED METHOD-//
@@ -88,7 +83,7 @@ public class Level_03 extends AppCompatActivity {
         dialogFinish.setContentView(R.layout.activity_end_level_dialog);
         Objects.requireNonNull(dialogFinish.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialogFinish.setCancelable(false);
-        btn_go_next_in_finishDialog = (Button)dialogFinish.findViewById(R.id.btn_go_next_in_finishDialog);
+        Button btn_go_next_in_finishDialog = dialogFinish.findViewById(R.id.btn_go_next_in_finishDialog);
 
         //-Сохранение данных активности-//
         save = getSharedPreferences("Save", MODE_PRIVATE);
@@ -122,9 +117,10 @@ public class Level_03 extends AppCompatActivity {
         hint.requestWindowFeature(Window.FEATURE_NO_TITLE);
         hint.setContentView(R.layout.activity_hint);
         Objects.requireNonNull(hint.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        ImageView imageView = (ImageView)hint.findViewById(R.id.img_hint);
+        ImageView imageView = hint.findViewById(R.id.img_hint);
         imageView.setBackgroundResource(R.drawable.lvl_03_full);
-        btn_close_hint = (Button)hint.findViewById(R.id.close_hint_button);
+        //-Блок переменных-//
+        Button btn_close_hint = hint.findViewById(R.id.close_hint_button);
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         btn_close_hint.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -134,7 +130,7 @@ public class Level_03 extends AppCompatActivity {
             }
         });
         //-Обработка кнопки Закрыть подсказку-//
-        btn_openHint = (Button)findViewById(R.id.btn_hint_lvl_03);
+        Button btn_openHint = findViewById(R.id.btn_hint_lvl_03);
         btn_openHint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -149,7 +145,7 @@ public class Level_03 extends AppCompatActivity {
 
 
         //-Обработка кнопки назад-//
-        btn_back_to_game_levels = (Button)findViewById(R.id.btn_back_lvl_02);
+        Button btn_back_to_game_levels = findViewById(R.id.btn_back_lvl_02);
         btn_back_to_game_levels.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -174,7 +170,7 @@ public class Level_03 extends AppCompatActivity {
 
     private void init() {
 
-        mGridView = (GestureDetectGridView3) findViewById(R.id.grid_lvl_03);
+        mGridView = findViewById(R.id.grid_lvl_03);
         mGridView.setNumColumns(COLLUMN);
 
         tileList = new String[DIMENSIONS];
@@ -233,15 +229,35 @@ public class Level_03 extends AppCompatActivity {
         for (String s : tileList) {
             button = new Button(context);
 
-            if (s.equals("0")) button.setBackgroundResource(R.drawable.lvl_03_img_part1);
-            else if (s.equals("1")) button.setBackgroundResource(R.drawable.lvl_03_img_part2);
-            else if (s.equals("2")) button.setBackgroundResource(R.drawable.lvl_03_img_part3);
-            else if (s.equals("3")) button.setBackgroundResource(R.drawable.lvl_03_img_part4);
-            else if (s.equals("4")) button.setBackgroundResource(R.drawable.lvl_03_img_part5);
-            else if (s.equals("5")) button.setBackgroundResource(R.drawable.lvl_03_img_part6);
-            else if (s.equals("6")) button.setBackgroundResource(R.drawable.lvl_03_img_part7);
-            else if (s.equals("7")) button.setBackgroundResource(R.drawable.lvl_03_img_part8);
-            else if (s.equals("8")) button.setBackgroundResource(R.drawable.lvl_03_img_part9);
+            switch (s) {
+                case "0":
+                    button.setBackgroundResource(R.drawable.lvl_03_img_part1);
+                    break;
+                case "1":
+                    button.setBackgroundResource(R.drawable.lvl_03_img_part2);
+                    break;
+                case "2":
+                    button.setBackgroundResource(R.drawable.lvl_03_img_part3);
+                    break;
+                case "3":
+                    button.setBackgroundResource(R.drawable.lvl_03_img_part4);
+                    break;
+                case "4":
+                    button.setBackgroundResource(R.drawable.lvl_03_img_part5);
+                    break;
+                case "5":
+                    button.setBackgroundResource(R.drawable.lvl_03_img_part6);
+                    break;
+                case "6":
+                    button.setBackgroundResource(R.drawable.lvl_03_img_part7);
+                    break;
+                case "7":
+                    button.setBackgroundResource(R.drawable.lvl_03_img_part8);
+                    break;
+                case "8":
+                    button.setBackgroundResource(R.drawable.lvl_03_img_part9);
+                    break;
+            }
             buttons.add(button);
         }
 
@@ -249,7 +265,7 @@ public class Level_03 extends AppCompatActivity {
 
     }
 
-    public static void swapLvl_03(Context context, int currentPosition, int swap) {
+    private static void swapLvl_03(Context context, int currentPosition, int swap) {
         String newPosition = tileList[currentPosition + swap];
         tileList[currentPosition + swap] = tileList[currentPosition];
         tileList[currentPosition] = newPosition;
@@ -261,7 +277,7 @@ public class Level_03 extends AppCompatActivity {
         }
     } //-метод передвижения блоков-//
 
-    public static void moveTilesLvl_03(Context context, String direction, int position) throws InterruptedException {
+    public static void moveTilesLvl_03(Context context, String direction, int position) {
 
         // Upper-left-corner tile
         if (position == 0) {
@@ -272,9 +288,17 @@ public class Level_03 extends AppCompatActivity {
 
             // Upper-center tiles
         } else if (position > 0 && position < COLLUMN - 1) {
-            if (direction.equals(LEFT)) swapLvl_03(context, position, -1);
-            else if (direction.equals(DOWN)) swapLvl_03(context, position, COLLUMN);
-            else if (direction.equals(RIGHT)) swapLvl_03(context, position, 1);
+            switch (direction) {
+                case LEFT:
+                    swapLvl_03(context, position, -1);
+                    break;
+                case DOWN:
+                    swapLvl_03(context, position, COLLUMN);
+                    break;
+                case RIGHT:
+                    swapLvl_03(context, position, 1);
+                    break;
+            }
 //            else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
 
             // Upper-right-corner tile
@@ -286,23 +310,37 @@ public class Level_03 extends AppCompatActivity {
             // Left-side tiles
         } else if (position > COLLUMN - 1 && position < DIMENSIONS - COLLUMN &&
                 position % COLLUMN == 0) {
-            if (direction.equals(UP)) swapLvl_03(context, position, - COLLUMN);
-            else if (direction.equals(RIGHT)) swapLvl_03(context, position, 1);
-            else if (direction.equals(DOWN)) swapLvl_03(context, position, COLLUMN);
+            switch (direction) {
+                case UP:
+                    swapLvl_03(context, position, -COLLUMN);
+                    break;
+                case RIGHT:
+                    swapLvl_03(context, position, 1);
+                    break;
+                case DOWN:
+                    swapLvl_03(context, position, COLLUMN);
+                    break;
+            }
 //            else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
 
             // Right-side AND bottom-right-corner tiles
         } else if (position == COLLUMN * 2 - 1 || position == COLLUMN * 3 - 1) {
-            if (direction.equals(UP)) swapLvl_03(context, position, - COLLUMN);
-            else if (direction.equals(LEFT)) swapLvl_03(context, position, -1);
-            else if (direction.equals(DOWN)) {
+            switch (direction) {
+                case UP:
+                    swapLvl_03(context, position, -COLLUMN);
+                    break;
+                case LEFT:
+                    swapLvl_03(context, position, -1);
+                    break;
+                case DOWN:
 
-                // Tolerates only the right-side tiles to swap downwards as opposed to the bottom-
-                // right-corner tile.
-                if (position <= DIMENSIONS - COLLUMN - 1) swapLvl_03(context, position,
-                        COLLUMN);
+                    // Tolerates only the right-side tiles to swap downwards as opposed to the bottom-
+                    // right-corner tile.
+                    if (position <= DIMENSIONS - COLLUMN - 1) swapLvl_03(context, position,
+                            COLLUMN);
 //                else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
-            } //else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
+                    break;
+            }
 
             // Bottom-left corner tile
         } else if (position == DIMENSIONS - COLLUMN) {
@@ -312,17 +350,35 @@ public class Level_03 extends AppCompatActivity {
 
             // Bottom-center tiles
         } else if (position < DIMENSIONS - 1 && position > DIMENSIONS - COLLUMN) {
-            if (direction.equals(UP)) swapLvl_03(context, position, -COLLUMN);
-            else if (direction.equals(LEFT)) swapLvl_03(context, position, -1);
-            else if (direction.equals(RIGHT)) swapLvl_03(context, position, 1);
+            switch (direction) {
+                case UP:
+                    swapLvl_03(context, position, -COLLUMN);
+                    break;
+                case LEFT:
+                    swapLvl_03(context, position, -1);
+                    break;
+                case RIGHT:
+                    swapLvl_03(context, position, 1);
+                    break;
+            }
 //            else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
 
             // Center tiles
         } else {
-            if (direction.equals(UP)) swapLvl_03(context, position, -COLLUMN);
-            else if (direction.equals(LEFT)) swapLvl_03(context, position, -1);
-            else if (direction.equals(RIGHT)) swapLvl_03(context, position, 1);
-            else swapLvl_03(context, position, COLLUMN);
+            switch (direction) {
+                case UP:
+                    swapLvl_03(context, position, -COLLUMN);
+                    break;
+                case LEFT:
+                    swapLvl_03(context, position, -1);
+                    break;
+                case RIGHT:
+                    swapLvl_03(context, position, 1);
+                    break;
+                default:
+                    swapLvl_03(context, position, COLLUMN);
+                    break;
+            }
         }
     }//-логика перестановки блоков-//
 

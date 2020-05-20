@@ -9,8 +9,9 @@ import java.util.ArrayList;
 
 class CustomAdapter extends BaseAdapter {
 
-    private ArrayList<Button> mButtons;
-    private int mColumnWidth, mColumnHeight;
+    private final ArrayList<Button> mButtons;
+    private final int mColumnWidth;
+    private final int mColumnHeight;
 
     public CustomAdapter(ArrayList<Button> buttons, int columnWidth, int columnHeight) {
         mButtons = buttons;
@@ -24,7 +25,7 @@ class CustomAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int position) {return (Object) mButtons.get(position);}
+    public Object getItem(int position) {return mButtons.get(position);}
 
     @Override
     public long getItemId(int position) {

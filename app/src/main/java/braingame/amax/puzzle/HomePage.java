@@ -33,7 +33,7 @@ public class HomePage extends AppCompatActivity {
         //-Диалоговое окно "О ИГРЕ"-//
         mDialogAbout = new Dialog(HomePage.this);
         mDialogAbout.setContentView(R.layout.activity_dialog_about);
-        Button btn_close_dialog = (Button) mDialogAbout.findViewById(R.id.btn_close_dialog_about);
+        Button btn_close_dialog = mDialogAbout.findViewById(R.id.btn_close_dialog_about);
         //-Обработка кнопки ЗАКРЫТЬ в диалоговом окне-//
         btn_close_dialog.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,7 +50,7 @@ public class HomePage extends AppCompatActivity {
         //-Конец диалогового окна "О ИГРЕ"-//
 
         //-Обработка кнопки "ИГРАТЬ"-//
-        Button mBtn_play = (Button) findViewById(R.id.home_btn_play);
+        Button mBtn_play = findViewById(R.id.home_btn_play);
         mBtn_play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,7 +65,7 @@ public class HomePage extends AppCompatActivity {
         //-Конец обработки кнопки "ИГРАТЬ"-//
 
         //-Обработка кнопки "О ИГРЕ"-//
-        Button mBtn_about = (Button) findViewById(R.id.home_btn_about);
+        Button mBtn_about = findViewById(R.id.home_btn_about);
         mBtn_about.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,7 +77,7 @@ public class HomePage extends AppCompatActivity {
         //-Конец обработки кнопки "О ИГРЕ"-//
 
         //-Обработка кнопки "ВЫХОД"-//
-        Button mBtn_exit = (Button) findViewById(R.id.home_btn_exit);
+        Button mBtn_exit = findViewById(R.id.home_btn_exit);
         mBtn_exit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

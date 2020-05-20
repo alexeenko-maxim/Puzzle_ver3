@@ -14,8 +14,7 @@ public class Splash extends AppCompatActivity {
     private Timer timer;
     private ProgressBar progressBar;
     private int i = 0;
-    TextView textView;
-    final long period = 100;
+    private TextView textView;
     //-Конец блока переменных-//
 
     @Override
@@ -23,12 +22,13 @@ public class Splash extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         //-Создание прогресс бара-//
-        progressBar=(ProgressBar)findViewById(R.id.progressBar);
+        progressBar= findViewById(R.id.progressBar);
         progressBar.setProgress(0);
         progressBar.setScaleY(4f);
-        textView=(TextView)findViewById(R.id.count_progress_txt);
+        textView= findViewById(R.id.count_progress_txt);
         textView.setText("");
         timer=new Timer();
+        long period = 100;
         timer.schedule(new TimerTask() {
             @Override
             public void run() {

@@ -61,13 +61,13 @@ public class GestureDetectGridView4 extends GridView {
                     if (e1.getY() - e2.getY() > SWIPE_MIN_DISTANCE) {
                         try {
                             Level_04.moveTilesLvl_04(context, Level_04.UP, position);
-                        } catch (InterruptedException e) {
+                        } catch (Exception e) {
                             e.printStackTrace();
                         }
                     } else if (e2.getY() - e1.getY() > SWIPE_MIN_DISTANCE) {
                         try {
                             Level_04.moveTilesLvl_04(context, Level_04.DOWN, position);
-                        } catch (InterruptedException e) {
+                        } catch (Exception e) {
                             e.printStackTrace();
                         }
                     }
@@ -78,13 +78,13 @@ public class GestureDetectGridView4 extends GridView {
                     if (e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE) {
                         try {
                             Level_04.moveTilesLvl_04(context, Level_04.LEFT, position);
-                        } catch (InterruptedException e) {
+                        } catch (Exception e) {
                             e.printStackTrace();
                         }
                     } else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE) {
                         try {
                             Level_04.moveTilesLvl_04(context, Level_04.RIGHT, position);
-                        } catch (InterruptedException e) {
+                        } catch (Exception e) {
                             e.printStackTrace();
                         }
                     }

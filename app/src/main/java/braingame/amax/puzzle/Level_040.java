@@ -29,23 +29,19 @@ public class Level_040 extends AppCompatActivity {
 
     //-Блок переменных-//
     private static GestureDetectGridView40 mGridView;
-    public Button btn_back_to_game_levels;
-    public Button btn_go_next_in_finishDialog;
 
-    protected Button btn_close_hint;
-    protected Button btn_openHint;
-    public Dialog hint;
-    protected SharedPreferences save;
-    public static Dialog overGame;
+    private Dialog hint;
+    private SharedPreferences save;
+    private static Dialog overGame;
     private static final int COLLUMN = 6;
     private static final int DIMENSIONS = COLLUMN * COLLUMN;
     private static int mColumnWidth, mColumnHeight;
-    public static String UP = "up";
-    public static String DOWN = "down";
-    public static String LEFT = "left";
-    public static String RIGHT = "right";
+    public static final String UP = "up";
+    public static final String DOWN = "down";
+    public static final String LEFT = "left";
+    public static final String RIGHT = "right";
     private static String[] tileList;
-    public InterstitialAd interstitialAd;
+    private InterstitialAd interstitialAd;
     //-Конец Блока переменных-//
 
     @Override//-ON-CREATED METHOD-//
@@ -88,7 +84,7 @@ public class Level_040 extends AppCompatActivity {
         overGame.setContentView(R.layout.activity_over);
         Objects.requireNonNull(overGame.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         overGame.setCancelable(false);
-        btn_go_next_in_finishDialog = (Button)overGame.findViewById(R.id.btn_go_next_in_finishDialog);
+        Button btn_go_next_in_finishDialog = overGame.findViewById(R.id.btn_go_next_in_finishDialog);
 
         //-Сохранение данных активности-//
         save = getSharedPreferences("Save", MODE_PRIVATE);
@@ -122,9 +118,9 @@ public class Level_040 extends AppCompatActivity {
         hint.requestWindowFeature(Window.FEATURE_NO_TITLE);
         hint.setContentView(R.layout.activity_hint);
         Objects.requireNonNull(hint.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        ImageView imageView = (ImageView)hint.findViewById(R.id.img_hint);
+        ImageView imageView = hint.findViewById(R.id.img_hint);
         imageView.setBackgroundResource(R.drawable.lvl_40_full);
-        btn_close_hint = (Button)hint.findViewById(R.id.close_hint_button);
+        Button btn_close_hint = hint.findViewById(R.id.close_hint_button);
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         btn_close_hint.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -134,7 +130,7 @@ public class Level_040 extends AppCompatActivity {
             }
         });
         //-Обработка кнопки Закрыть подсказку-//
-        btn_openHint = (Button)findViewById(R.id.btn_hint_lvl_040);
+        Button btn_openHint = findViewById(R.id.btn_hint_lvl_040);
         btn_openHint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -149,7 +145,7 @@ public class Level_040 extends AppCompatActivity {
 
 
         //-Обработка кнопки назад-//
-        btn_back_to_game_levels = (Button)findViewById(R.id.btn_back_lvl_02);
+        Button btn_back_to_game_levels = findViewById(R.id.btn_back_lvl_02);
         btn_back_to_game_levels.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -174,7 +170,7 @@ public class Level_040 extends AppCompatActivity {
 
     private void init() {
 
-        mGridView = (GestureDetectGridView40) findViewById(R.id.grid_lvl_040);
+        mGridView = findViewById(R.id.grid_lvl_040);
         mGridView.setNumColumns(COLLUMN);
 
         tileList = new String[DIMENSIONS];
@@ -233,42 +229,116 @@ public class Level_040 extends AppCompatActivity {
         for (String s : tileList) {
             button = new Button(context);
 
-            if (s.equals("0")) button.setBackgroundResource(R.drawable.lvl_40_img_part1);
-            else if (s.equals("1")) button.setBackgroundResource(R.drawable.lvl_40_img_part2);
-            else if (s.equals("2")) button.setBackgroundResource(R.drawable.lvl_40_img_part3);
-            else if (s.equals("3")) button.setBackgroundResource(R.drawable.lvl_40_img_part4);
-            else if (s.equals("4")) button.setBackgroundResource(R.drawable.lvl_40_img_part5);
-            else if (s.equals("5")) button.setBackgroundResource(R.drawable.lvl_40_img_part6);
-            else if (s.equals("6")) button.setBackgroundResource(R.drawable.lvl_40_img_part7);
-            else if (s.equals("7")) button.setBackgroundResource(R.drawable.lvl_40_img_part8);
-            else if (s.equals("8")) button.setBackgroundResource(R.drawable.lvl_40_img_part9);
-            else if (s.equals("9")) button.setBackgroundResource(R.drawable.lvl_40_img_part10);
-            else if (s.equals("10")) button.setBackgroundResource(R.drawable.lvl_40_img_part11);
-            else if (s.equals("11")) button.setBackgroundResource(R.drawable.lvl_40_img_part12);
-            else if (s.equals("12")) button.setBackgroundResource(R.drawable.lvl_40_img_part13);
-            else if (s.equals("13")) button.setBackgroundResource(R.drawable.lvl_40_img_part14);
-            else if (s.equals("14")) button.setBackgroundResource(R.drawable.lvl_40_img_part15);
-            else if (s.equals("15")) button.setBackgroundResource(R.drawable.lvl_40_img_part16);
-            else if (s.equals("16")) button.setBackgroundResource(R.drawable.lvl_40_img_part17);
-            else if (s.equals("17")) button.setBackgroundResource(R.drawable.lvl_40_img_part18);
-            else if (s.equals("18")) button.setBackgroundResource(R.drawable.lvl_40_img_part19);
-            else if (s.equals("19")) button.setBackgroundResource(R.drawable.lvl_40_img_part20);
-            else if (s.equals("20")) button.setBackgroundResource(R.drawable.lvl_40_img_part21);
-            else if (s.equals("21")) button.setBackgroundResource(R.drawable.lvl_40_img_part22);
-            else if (s.equals("22")) button.setBackgroundResource(R.drawable.lvl_40_img_part23);
-            else if (s.equals("23")) button.setBackgroundResource(R.drawable.lvl_40_img_part24);
-            else if (s.equals("24")) button.setBackgroundResource(R.drawable.lvl_40_img_part25);
-            else if (s.equals("25")) button.setBackgroundResource(R.drawable.lvl_40_img_part26);
-            else if (s.equals("26")) button.setBackgroundResource(R.drawable.lvl_40_img_part27);
-            else if (s.equals("27")) button.setBackgroundResource(R.drawable.lvl_40_img_part28);
-            else if (s.equals("28")) button.setBackgroundResource(R.drawable.lvl_40_img_part29);
-            else if (s.equals("29")) button.setBackgroundResource(R.drawable.lvl_40_img_part30);
-            else if (s.equals("30")) button.setBackgroundResource(R.drawable.lvl_40_img_part31);
-            else if (s.equals("31")) button.setBackgroundResource(R.drawable.lvl_40_img_part32);
-            else if (s.equals("32")) button.setBackgroundResource(R.drawable.lvl_40_img_part33);
-            else if (s.equals("33")) button.setBackgroundResource(R.drawable.lvl_40_img_part34);
-            else if (s.equals("34")) button.setBackgroundResource(R.drawable.lvl_40_img_part35);
-            else if (s.equals("35")) button.setBackgroundResource(R.drawable.lvl_40_img_part36);
+            switch (s) {
+                case "0":
+                    button.setBackgroundResource(R.drawable.lvl_40_img_part1);
+                    break;
+                case "1":
+                    button.setBackgroundResource(R.drawable.lvl_40_img_part2);
+                    break;
+                case "2":
+                    button.setBackgroundResource(R.drawable.lvl_40_img_part3);
+                    break;
+                case "3":
+                    button.setBackgroundResource(R.drawable.lvl_40_img_part4);
+                    break;
+                case "4":
+                    button.setBackgroundResource(R.drawable.lvl_40_img_part5);
+                    break;
+                case "5":
+                    button.setBackgroundResource(R.drawable.lvl_40_img_part6);
+                    break;
+                case "6":
+                    button.setBackgroundResource(R.drawable.lvl_40_img_part7);
+                    break;
+                case "7":
+                    button.setBackgroundResource(R.drawable.lvl_40_img_part8);
+                    break;
+                case "8":
+                    button.setBackgroundResource(R.drawable.lvl_40_img_part9);
+                    break;
+                case "9":
+                    button.setBackgroundResource(R.drawable.lvl_40_img_part10);
+                    break;
+                case "10":
+                    button.setBackgroundResource(R.drawable.lvl_40_img_part11);
+                    break;
+                case "11":
+                    button.setBackgroundResource(R.drawable.lvl_40_img_part12);
+                    break;
+                case "12":
+                    button.setBackgroundResource(R.drawable.lvl_40_img_part13);
+                    break;
+                case "13":
+                    button.setBackgroundResource(R.drawable.lvl_40_img_part14);
+                    break;
+                case "14":
+                    button.setBackgroundResource(R.drawable.lvl_40_img_part15);
+                    break;
+                case "15":
+                    button.setBackgroundResource(R.drawable.lvl_40_img_part16);
+                    break;
+                case "16":
+                    button.setBackgroundResource(R.drawable.lvl_40_img_part17);
+                    break;
+                case "17":
+                    button.setBackgroundResource(R.drawable.lvl_40_img_part18);
+                    break;
+                case "18":
+                    button.setBackgroundResource(R.drawable.lvl_40_img_part19);
+                    break;
+                case "19":
+                    button.setBackgroundResource(R.drawable.lvl_40_img_part20);
+                    break;
+                case "20":
+                    button.setBackgroundResource(R.drawable.lvl_40_img_part21);
+                    break;
+                case "21":
+                    button.setBackgroundResource(R.drawable.lvl_40_img_part22);
+                    break;
+                case "22":
+                    button.setBackgroundResource(R.drawable.lvl_40_img_part23);
+                    break;
+                case "23":
+                    button.setBackgroundResource(R.drawable.lvl_40_img_part24);
+                    break;
+                case "24":
+                    button.setBackgroundResource(R.drawable.lvl_40_img_part25);
+                    break;
+                case "25":
+                    button.setBackgroundResource(R.drawable.lvl_40_img_part26);
+                    break;
+                case "26":
+                    button.setBackgroundResource(R.drawable.lvl_40_img_part27);
+                    break;
+                case "27":
+                    button.setBackgroundResource(R.drawable.lvl_40_img_part28);
+                    break;
+                case "28":
+                    button.setBackgroundResource(R.drawable.lvl_40_img_part29);
+                    break;
+                case "29":
+                    button.setBackgroundResource(R.drawable.lvl_40_img_part30);
+                    break;
+                case "30":
+                    button.setBackgroundResource(R.drawable.lvl_40_img_part31);
+                    break;
+                case "31":
+                    button.setBackgroundResource(R.drawable.lvl_40_img_part32);
+                    break;
+                case "32":
+                    button.setBackgroundResource(R.drawable.lvl_40_img_part33);
+                    break;
+                case "33":
+                    button.setBackgroundResource(R.drawable.lvl_40_img_part34);
+                    break;
+                case "34":
+                    button.setBackgroundResource(R.drawable.lvl_40_img_part35);
+                    break;
+                case "35":
+                    button.setBackgroundResource(R.drawable.lvl_40_img_part36);
+                    break;
+            }
 
             buttons.add(button);
         }
@@ -277,7 +347,7 @@ public class Level_040 extends AppCompatActivity {
 
     }
 
-    public static void swapLvl_040(Context context, int currentPosition, int swap) {
+    private static void swapLvl_040(Context context, int currentPosition, int swap) {
         String newPosition = tileList[currentPosition + swap];
         tileList[currentPosition + swap] = tileList[currentPosition];
         tileList[currentPosition] = newPosition;
@@ -289,68 +359,110 @@ public class Level_040 extends AppCompatActivity {
         }
     } //-метод передвижения блоков-//
 
-    public static void moveTilesLvl_040(Context context, String direction, int position) throws InterruptedException {
+    public static void moveTilesLvl_040(Context context, String direction, int position) {
 
         // Upper-left-corner tile
         if (position == 0) {
 
             if (direction.equals(RIGHT)) swapLvl_040(context, position, 1);
             else if (direction.equals(DOWN)) swapLvl_040(context, position, COLLUMN);
-            //else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
+
 
             // Upper-center tiles
         } else if (position > 0 && position < COLLUMN - 1) {
-            if (direction.equals(LEFT)) swapLvl_040(context, position, -1);
-            else if (direction.equals(DOWN)) swapLvl_040(context, position, COLLUMN);
-            else if (direction.equals(RIGHT)) swapLvl_040(context, position, 1);
-            //else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
+            switch (direction) {
+                case LEFT:
+                    swapLvl_040(context, position, -1);
+                    break;
+                case DOWN:
+                    swapLvl_040(context, position, COLLUMN);
+                    break;
+                case RIGHT:
+                    swapLvl_040(context, position, 1);
+                    break;
+            }
+
 
             // Upper-right-corner tile
         } else if (position == COLLUMN - 1) {
             if (direction.equals(LEFT)) swapLvl_040(context, position, -1);
             else if (direction.equals(DOWN)) swapLvl_040(context, position, COLLUMN);
-            //else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
+
 
             // Left-side tiles
         } else if (position > COLLUMN - 1 && position < DIMENSIONS - COLLUMN &&
                 position % COLLUMN == 0) {
-            if (direction.equals(UP)) swapLvl_040(context, position, - COLLUMN);
-            else if (direction.equals(RIGHT)) swapLvl_040(context, position, 1);
-            else if (direction.equals(DOWN)) swapLvl_040(context, position, COLLUMN);
-            //else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
+            switch (direction) {
+                case UP:
+                    swapLvl_040(context, position, -COLLUMN);
+                    break;
+                case RIGHT:
+                    swapLvl_040(context, position, 1);
+                    break;
+                case DOWN:
+                    swapLvl_040(context, position, COLLUMN);
+                    break;
+            }
+
 
             // Right-side AND bottom-right-corner tiles
         } else if (position == COLLUMN * 2 - 1 || position == COLLUMN * 3 - 1) {
-            if (direction.equals(UP)) swapLvl_040(context, position, - COLLUMN);
-            else if (direction.equals(LEFT)) swapLvl_040(context, position, -1);
-            else if (direction.equals(DOWN)) {
+            switch (direction) {
+                case UP:
+                    swapLvl_040(context, position, -COLLUMN);
+                    break;
+                case LEFT:
+                    swapLvl_040(context, position, -1);
+                    break;
+                case DOWN:
 
-                // Tolerates only the right-side tiles to swap downwards as opposed to the bottom-
-                // right-corner tile.
-                if (position <= DIMENSIONS - COLLUMN - 1) swapLvl_040(context, position,
-                        COLLUMN);
-                //else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
-            } //else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
+                    // Tolerates only the right-side tiles to swap downwards as opposed to the bottom-
+                    // right-corner tile.
+                    if (position <= DIMENSIONS - COLLUMN - 1) swapLvl_040(context, position,
+                            COLLUMN);
+
+                    break;
+            }
 
             // Bottom-left corner tile
         } else if (position == DIMENSIONS - COLLUMN) {
             if (direction.equals(UP)) swapLvl_040(context, position, -COLLUMN);
             else if (direction.equals(RIGHT)) swapLvl_040(context, position, 1);
-            //else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
+
 
             // Bottom-center tiles
         } else if (position < DIMENSIONS - 1 && position > DIMENSIONS - COLLUMN) {
-            if (direction.equals(UP)) swapLvl_040(context, position, -COLLUMN);
-            else if (direction.equals(LEFT)) swapLvl_040(context, position, -1);
-            else if (direction.equals(RIGHT)) swapLvl_040(context, position, 1);
-            else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
+            switch (direction) {
+                case UP:
+                    swapLvl_040(context, position, -COLLUMN);
+                    break;
+                case LEFT:
+                    swapLvl_040(context, position, -1);
+                    break;
+                case RIGHT:
+                    swapLvl_040(context, position, 1);
+                    break;
+                default:
+                    Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
+                    break;
+            }
 
             // Center tiles
         } else {
-            if (direction.equals(UP)) swapLvl_040(context, position, -COLLUMN);
-            else if (direction.equals(LEFT)) swapLvl_040(context, position, -1);
-            else if (direction.equals(RIGHT)) swapLvl_040(context, position, 1);
-            else swapLvl_040(context, position, COLLUMN);
+            switch (direction) {
+                case UP:
+                    swapLvl_040(context, position, -COLLUMN);
+                    break;
+                case LEFT:
+                    swapLvl_040(context, position, -1);
+                    break;
+                case RIGHT:
+                    swapLvl_040(context, position, 1);
+                    break;
+                default:
+                    swapLvl_040(context, position, COLLUMN);
+                    break;
+            }
         }
     }//-логика перестановки блоков-//
 

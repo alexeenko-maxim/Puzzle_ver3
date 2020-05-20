@@ -19,7 +19,7 @@ import com.google.android.gms.ads.MobileAds;
 
 public class GameLevels extends AppCompatActivity {
 
-    public InterstitialAd interstitialAd;
+    private InterstitialAd interstitialAd;
 
     @Override//-ON-CREATED METHOD-//
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +62,7 @@ public class GameLevels extends AppCompatActivity {
         //-Конец скрытия строки состояния-//
 
         //-Обработка кнопки НАЗАД-//
-        Button buttonBack = (Button) findViewById(R.id.btn_back);
+        Button buttonBack = findViewById(R.id.btn_back);
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,7 +80,7 @@ public class GameLevels extends AppCompatActivity {
         //-Конец обработки кнопки НАЗАД-//
 
         //-Обработка перехода на 1 увроень-//
-        TextView textView1 = (TextView) findViewById(R.id.textView1);
+        TextView textView1 = findViewById(R.id.textView1);
         textView1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,7 +100,7 @@ public class GameLevels extends AppCompatActivity {
         //-Конец обработки перехода на 1 увроень-//
 
         //-Обработка перехода на 2 увроень-//
-        TextView textView2 = (TextView) findViewById(R.id.textView2);
+        TextView textView2 = findViewById(R.id.textView2);
         textView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -119,7 +119,7 @@ public class GameLevels extends AppCompatActivity {
         //-Конец обработки перехода на 2 увроень-//
 
         //-Обработка перехода на 3 увроень-//
-        TextView textView3 = (TextView) findViewById(R.id.textView3);
+        TextView textView3 = findViewById(R.id.textView3);
         textView3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -137,7 +137,7 @@ public class GameLevels extends AppCompatActivity {
         //-Конец обработки перехода на 3 увроень-//
 
         //-Обработка перехода на 4 увроень-//
-        TextView textView4 = (TextView) findViewById(R.id.textView4);
+        TextView textView4 = findViewById(R.id.textView4);
         textView4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -155,7 +155,7 @@ public class GameLevels extends AppCompatActivity {
         //-Конец обработки перехода на 4 увроень-//
 
         //-Обработка перехода на 5 увроень-//
-        TextView textView5 = (TextView) findViewById(R.id.textView5);
+        TextView textView5 = findViewById(R.id.textView5);
         textView5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -173,7 +173,7 @@ public class GameLevels extends AppCompatActivity {
         //-Конец обработки перехода на 5 увроень-//
 
         //-Обработка перехода на 6 увроень-//
-        TextView textView6 = (TextView) findViewById(R.id.textView6);
+        TextView textView6 = findViewById(R.id.textView6);
         textView6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -191,7 +191,7 @@ public class GameLevels extends AppCompatActivity {
         //-Конец обработки перехода на 6 увроень-//
 
         //-Обработка перехода на 7 увроень-//
-        TextView textView7 = (TextView) findViewById(R.id.textView7);
+        TextView textView7 = findViewById(R.id.textView7);
         textView7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -209,7 +209,7 @@ public class GameLevels extends AppCompatActivity {
         //-Конец обработки перехода на 7 увроень-//
 
         //-Обработка перехода на 8 увроень-//
-        TextView textView8 = (TextView) findViewById(R.id.textView8);
+        TextView textView8 = findViewById(R.id.textView8);
         textView8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -227,7 +227,7 @@ public class GameLevels extends AppCompatActivity {
         //-Конец обработки перехода на 8 увроень-//
 
         //-Обработка перехода на 9 увроень-//
-        TextView textView9 = (TextView) findViewById(R.id.textView9);
+        TextView textView9 = findViewById(R.id.textView9);
         textView9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -245,7 +245,7 @@ public class GameLevels extends AppCompatActivity {
         //-Конец обработки перехода на 9 увроень-//
 
         //-Обработка перехода на 10 увроень-//
-        TextView textView10 = (TextView) findViewById(R.id.textView10);
+        TextView textView10 = findViewById(R.id.textView10);
         textView10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -263,7 +263,7 @@ public class GameLevels extends AppCompatActivity {
         //-Конец обработки перехода на 10 увроень-//
 
         //-Обработка перехода на 11 увроень-//
-        TextView textView11 = (TextView) findViewById(R.id.textView11);
+        TextView textView11 = findViewById(R.id.textView11);
         textView11.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -281,7 +281,7 @@ public class GameLevels extends AppCompatActivity {
         //-Конец обработки перехода на 11 увроень-//
 
         //-Обработка перехода на 12 увроень-//
-        TextView textView12 = (TextView) findViewById(R.id.textView12);
+        TextView textView12 = findViewById(R.id.textView12);
         textView12.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -299,7 +299,7 @@ public class GameLevels extends AppCompatActivity {
         //-Конец обработки перехода на 12 увроень-//
 
         //-Обработка перехода на 13 увроень-//
-        TextView textView13 = (TextView) findViewById(R.id.textView13);
+        TextView textView13 = findViewById(R.id.textView13);
         textView13.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -317,7 +317,7 @@ public class GameLevels extends AppCompatActivity {
         //-Конец обработки перехода на 13 увроень-//
 
         //-Обработка перехода на 14 увроень-//
-        TextView textView14 = (TextView) findViewById(R.id.textView14);
+        TextView textView14 = findViewById(R.id.textView14);
         textView14.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -335,7 +335,7 @@ public class GameLevels extends AppCompatActivity {
         //-Конец обработки перехода на 14 увроень-//
 
         //-Обработка перехода на 15 увроень-//
-        TextView textView15 = (TextView) findViewById(R.id.textView15);
+        TextView textView15 = findViewById(R.id.textView15);
         textView15.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -353,7 +353,7 @@ public class GameLevels extends AppCompatActivity {
         //-Конец обработки перехода на 15 увроень-//
 
         //-Обработка перехода на 16 увроень-//
-        TextView textView16 = (TextView) findViewById(R.id.textView16);
+        TextView textView16 = findViewById(R.id.textView16);
         textView16.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -371,7 +371,7 @@ public class GameLevels extends AppCompatActivity {
         //-Конец обработки перехода на 16 увроень-//
 
         //-Обработка перехода на 17 увроень-//
-        TextView textView17 = (TextView) findViewById(R.id.textView17);
+        TextView textView17 = findViewById(R.id.textView17);
         textView17.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -389,7 +389,7 @@ public class GameLevels extends AppCompatActivity {
         //-Конец обработки перехода на 17 увроень-//
 
         //-Обработка перехода на 18 увроень-//
-        TextView textView18 = (TextView) findViewById(R.id.textView18);
+        TextView textView18 = findViewById(R.id.textView18);
         textView18.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -407,7 +407,7 @@ public class GameLevels extends AppCompatActivity {
         //-Конец обработки перехода на 18 увроень-//
 
         //-Обработка перехода на 19 увроень-//
-        TextView textView19 = (TextView) findViewById(R.id.textView19);
+        TextView textView19 = findViewById(R.id.textView19);
         textView19.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -425,7 +425,7 @@ public class GameLevels extends AppCompatActivity {
         //-Конец обработки перехода на 19 увроень-//
 
         //-Обработка перехода на 20 увроень-//
-        TextView textView20 = (TextView) findViewById(R.id.textView20);
+        TextView textView20 = findViewById(R.id.textView20);
         textView20.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -443,7 +443,7 @@ public class GameLevels extends AppCompatActivity {
         //-Конец обработки перехода на 20 увроень-//
 
         //-Обработка перехода на 21 увроень-//
-        TextView textView21 = (TextView) findViewById(R.id.textView21);
+        TextView textView21 = findViewById(R.id.textView21);
         textView21.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -461,7 +461,7 @@ public class GameLevels extends AppCompatActivity {
         //-Конец обработки перехода на 21 увроень-//
 
         //-Обработка перехода на 22 увроень-//
-        TextView textView22 = (TextView) findViewById(R.id.textView22);
+        TextView textView22 = findViewById(R.id.textView22);
         textView22.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -479,7 +479,7 @@ public class GameLevels extends AppCompatActivity {
         //-Конец обработки перехода на 22 увроень-//
 
         //-Обработка перехода на 23 увроень-//
-        TextView textView23 = (TextView) findViewById(R.id.textView23);
+        TextView textView23 = findViewById(R.id.textView23);
         textView23.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -497,7 +497,7 @@ public class GameLevels extends AppCompatActivity {
         //-Конец обработки перехода на 23 увроень-//
 
         //-Обработка перехода на 24 увроень-//
-        TextView textView24 = (TextView) findViewById(R.id.textView24);
+        TextView textView24 = findViewById(R.id.textView24);
         textView24.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -515,7 +515,7 @@ public class GameLevels extends AppCompatActivity {
         //-Конец обработки перехода на 24 увроень-//
 
         //-Обработка перехода на 25 увроень-//
-        TextView textView25 = (TextView) findViewById(R.id.textView25);
+        TextView textView25 = findViewById(R.id.textView25);
         textView25.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -533,7 +533,7 @@ public class GameLevels extends AppCompatActivity {
         //-Конец обработки перехода на 25 увроень-//
 
         //-Обработка перехода на 26 увроень-//
-        TextView textView26 = (TextView) findViewById(R.id.textView26);
+        TextView textView26 = findViewById(R.id.textView26);
         textView26.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -551,7 +551,7 @@ public class GameLevels extends AppCompatActivity {
         //-Конец обработки перехода на 26 увроень-//
 
         //-Обработка перехода на 27 увроень-//
-        TextView textView27 = (TextView) findViewById(R.id.textView27);
+        TextView textView27 = findViewById(R.id.textView27);
         textView27.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -569,7 +569,7 @@ public class GameLevels extends AppCompatActivity {
         //-Конец обработки перехода на 27 увроень-//
 
         //-Обработка перехода на 28 увроень-//
-        TextView textView28 = (TextView) findViewById(R.id.textView28);
+        TextView textView28 = findViewById(R.id.textView28);
         textView28.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -587,7 +587,7 @@ public class GameLevels extends AppCompatActivity {
         //-Конец обработки перехода на 28 увроень-//
 
         //-Обработка перехода на 29 увроень-//
-        TextView textView29 = (TextView) findViewById(R.id.textView29);
+        TextView textView29 = findViewById(R.id.textView29);
         textView29.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -605,7 +605,7 @@ public class GameLevels extends AppCompatActivity {
         //-Конец обработки перехода на 29 увроень-//
 
         //-Обработка перехода на 30 увроень-//
-        TextView textView30 = (TextView) findViewById(R.id.textView30);
+        TextView textView30 = findViewById(R.id.textView30);
         textView30.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -623,7 +623,7 @@ public class GameLevels extends AppCompatActivity {
         //-Конец обработки перехода на 30 увроень-//
 
         //-Обработка перехода на 31 увроень-//
-        TextView textView31 = (TextView) findViewById(R.id.textView31);
+        TextView textView31 = findViewById(R.id.textView31);
         textView31.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -641,7 +641,7 @@ public class GameLevels extends AppCompatActivity {
         //-Конец обработки перехода на 31 увроень-//
 
         //-Обработка перехода на 32 увроень-//
-        TextView textView32 = (TextView) findViewById(R.id.textView32);
+        TextView textView32 = findViewById(R.id.textView32);
         textView32.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -659,7 +659,7 @@ public class GameLevels extends AppCompatActivity {
         //-Конец обработки перехода на 32 увроень-//
 
         //-Обработка перехода на 33 увроень-//
-        TextView textView33 = (TextView) findViewById(R.id.textView33);
+        TextView textView33 = findViewById(R.id.textView33);
         textView33.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -677,7 +677,7 @@ public class GameLevels extends AppCompatActivity {
         //-Конец обработки перехода на 33 увроень-//
 
         //-Обработка перехода на 34 увроень-//
-        TextView textView34 = (TextView) findViewById(R.id.textView34);
+        TextView textView34 = findViewById(R.id.textView34);
         textView34.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -695,7 +695,7 @@ public class GameLevels extends AppCompatActivity {
         //-Конец обработки перехода на 34 увроень-//
 
         //-Обработка перехода на 35 увроень-//
-        TextView textView35 = (TextView) findViewById(R.id.textView35);
+        TextView textView35 = findViewById(R.id.textView35);
         textView35.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -713,7 +713,7 @@ public class GameLevels extends AppCompatActivity {
         //-Конец обработки перехода на 35 увроень-//
 
         //-Обработка перехода на 36 увроень-//
-        TextView textView36 = (TextView) findViewById(R.id.textView36);
+        TextView textView36 = findViewById(R.id.textView36);
         textView36.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -731,7 +731,7 @@ public class GameLevels extends AppCompatActivity {
         //-Конец обработки перехода на 36 увроень-//
 
         //-Обработка перехода на 37 увроень-//
-        TextView textView37 = (TextView) findViewById(R.id.textView37);
+        TextView textView37 = findViewById(R.id.textView37);
         textView37.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -749,7 +749,7 @@ public class GameLevels extends AppCompatActivity {
         //-Конец обработки перехода на 37 увроень-//
 
         //-Обработка перехода на 38 увроень-//
-        TextView textView38 = (TextView) findViewById(R.id.textView38);
+        TextView textView38 = findViewById(R.id.textView38);
         textView38.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -767,7 +767,7 @@ public class GameLevels extends AppCompatActivity {
         //-Конец обработки перехода на 38 увроень-//
 
         //-Обработка перехода на 39 увроень-//
-        TextView textView39 = (TextView) findViewById(R.id.textView39);
+        TextView textView39 = findViewById(R.id.textView39);
         textView39.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -785,7 +785,7 @@ public class GameLevels extends AppCompatActivity {
         //-Конец обработки перехода на 39 увроень-//
 
         //-Обработка перехода на 40 увроень-//
-        TextView textView40 = (TextView) findViewById(R.id.textView40);
+        TextView textView40 = findViewById(R.id.textView40);
         textView40.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

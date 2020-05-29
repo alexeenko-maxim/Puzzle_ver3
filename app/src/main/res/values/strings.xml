@@ -91,7 +91,7 @@
     <string name="dialog_finish_text">Level completed. Congratulations!!!\n\nYou unlock next level</string>
     <string name="dialog_overGame">Congratulations!\n\nYou completed all game and unlock all level.\n\n Coming soon game part two. You will receive notifications as soon as the game is updated. \n\nSee you soon!</string>
     <string name="close">CLOSE</string>
-    <string name="about_text">Сhildrens game \"ImgCollector\"\n\nThe game is similar to Puzzle.\n\nDuring the game you have to collect parts of the images.
+    <string name="about_text">Game \"ImgCollector\"\n\nThe game is similar to Puzzle.\n\nDuring the game you have to collect parts of the images.
     \n\nThe game has 40 levels. Levels are opened after completing the previous levels.
     \n\nHave a nice game!</string>
     <string name="discription_home_screen">home_screen_bg_image</string>

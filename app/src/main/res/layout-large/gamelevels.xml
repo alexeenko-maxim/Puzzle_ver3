@@ -17,7 +17,7 @@
         android:layout_marginTop="0dp"
         android:contentDescription="@string/discription_game_level"
         android:scaleType="centerCrop"
-        android:src="@drawable/bg03" /><!--   .end bg img-->
+        android:src="@drawable/gamelevel_bg" /><!--   .end bg img-->
 
     <!--    main container-->
     <LinearLayout

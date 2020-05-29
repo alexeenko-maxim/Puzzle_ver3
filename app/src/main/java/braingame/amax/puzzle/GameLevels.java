@@ -110,7 +110,7 @@ public class GameLevels extends AppCompatActivity {
                         startActivity(intent1);
                         finish();
                     System.exit (0);
-                    }else { }
+                    }
 
                 } catch (Exception ignored) {
                 }
@@ -129,7 +129,7 @@ public class GameLevels extends AppCompatActivity {
                         startActivity(intent);
                         finish();
                     System.exit (0);
-                    }else { }
+                    }
                 } catch (Exception ignored) {
                 }
             }
@@ -147,7 +147,7 @@ public class GameLevels extends AppCompatActivity {
                         startActivity(intent1);
                         finish();
                     System.exit (0);
-                    }else { }
+                    }
                 } catch (Exception ignored) {
                 }
             }

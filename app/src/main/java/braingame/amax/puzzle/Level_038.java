@@ -13,7 +13,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -420,10 +419,10 @@ public class Level_038 extends AppCompatActivity {
                     // right-corner tile.
                     if (position <= DIMENSIONS - COLLUMN - 1) swapLvl_038(context, position,
                             COLLUMN);
-                    else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
+                    else
                     break;
                 default:
-                    Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
+
                     break;
             }
 
@@ -431,7 +430,7 @@ public class Level_038 extends AppCompatActivity {
         } else if (position == DIMENSIONS - COLLUMN) {
             if (direction.equals(UP)) swapLvl_038(context, position, -COLLUMN);
             else if (direction.equals(RIGHT)) swapLvl_038(context, position, 1);
-            else Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
+
 
             // Bottom-center tiles
         } else if (position < DIMENSIONS - 1 && position > DIMENSIONS - COLLUMN) {
@@ -446,7 +445,7 @@ public class Level_038 extends AppCompatActivity {
                     swapLvl_038(context, position, 1);
                     break;
                 default:
-                    Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
+
                     break;
             }
 

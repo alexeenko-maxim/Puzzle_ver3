@@ -13,7 +13,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.ads.AdListener;
@@ -443,7 +443,7 @@ public class Level_040 extends AppCompatActivity {
                     swapLvl_040(context, position, 1);
                     break;
                 default:
-                    Toast.makeText(context, "Invalid move", Toast.LENGTH_SHORT).show();
+
                     break;
             }
 

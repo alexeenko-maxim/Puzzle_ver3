@@ -20,6 +20,7 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
+
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Random;
@@ -39,53 +40,32 @@ public class Level_01 extends AppCompatActivity {
     public static final String LEFT = "left";
     public static final String RIGHT = "right";
     private static String[] tileList;
-    private InterstitialAd interstitialAd;
-    //-Конец блока переменных-//
+    //-Конец Блока переменных-//
 
-    @Override
+    @Override//------------------------------------------
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_01);
-        //-Рекламный блок-//
-        MobileAds.initialize(this, "ca-app-pub-6829999012626733~5810211480");
-        interstitialAd = new InterstitialAd(this);
-        interstitialAd.setAdUnitId("ca-app-pub-6829999012626733/1372751959");
-        AdRequest adRequest = new AdRequest.Builder().build();
-        interstitialAd.loadAd(adRequest);
-        //-Конец рекламного блока-//
-        //-Закрытие рекламы на крестик-//
-        interstitialAd.setAdListener(new AdListener() {
-            @Override
-            public void onAdClosed() {
-                try {
-                    SharedPreferences.Editor editor = save.edit();
-                    editor.putInt("Level", 2);
-                    editor.apply();
-                    Intent intent = new Intent(Level_01.this, GameLevels.class);
-                    startActivity(intent);
-                    finish();
-                } catch (Exception ignored) {                }
-            }
-        });
-        //-Конец закрытия рекламы на крестик-//
+
+        //-Сохранение данных активности-//
+        save = getSharedPreferences("Save", MODE_PRIVATE);
+        final int level = save.getInt("Level", 1);
+        //-Конец сохранения данных-//
 
         //-Скрытие строки состояния-//
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         //-Конец скрытия строки состояния-//
 
-        //-Финишный диалог-//
-        dialogFinish = new Dialog(this);
-        dialogFinish.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialogFinish.setContentView(R.layout.activity_end_level_dialog);
-        Objects.requireNonNull(dialogFinish.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        dialogFinish.setCancelable(false);
-        Button btn_go_next_in_finishDialog = dialogFinish.findViewById(R.id.btn_go_next_in_finishDialog);
-        //-Сохранение данных активности-//
-        save = getSharedPreferences("Save", MODE_PRIVATE);
-        final int level = save.getInt("Level", 1);
-        //-Конец сохранения данных-//
-        //-Конец финишного диалога-//
+        //-Рекламный блок-//
+        MobileAds.initialize(this, "ca-app-pub-6829999012626733~5810211480");
+        InterstitialAd interstitialAd = new InterstitialAd(this);
+        interstitialAd.setAdUnitId("ca-app-pub-6829999012626733/1372751959");
+        AdRequest adRequest = new AdRequest.Builder().build();
+        interstitialAd.loadAd(adRequest);
+        //-Конец рекламного блока-//
+
+        //-----------------Диалоги--------------------//
 
         //-Диалог с подсказкой-//
         hint = new Dialog(this);
@@ -97,32 +77,53 @@ public class Level_01 extends AppCompatActivity {
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         //-Конец диалога с подсказкой-//
 
+        //-Финишный диалог-//
+        dialogFinish = new Dialog(this);
+        dialogFinish.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialogFinish.setContentView(R.layout.activity_end_level_dialog);
+        Objects.requireNonNull(dialogFinish.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialogFinish.setCancelable(false);
+        Button btn_go_next_in_finishDialog = dialogFinish.findViewById(R.id.btn_go_next_in_finishDialog);
+        //-Конец финишного диалога-//
+        //----------------Конец - Диалогов------------------//
+
+        //--------------Обработка нажатий-------------------//
+        //-Закрытие рекламы на крестик-//
+        interstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                try {
+                    SharedPreferences.Editor editor = save.edit();
+                    editor.putInt("Level", 2);
+                    editor.commit();
+                    Intent intent = new Intent(Level_01.this, GameLevels.class);
+                    startActivity(intent);
+                    finish();
+                } catch (Exception ignored) {                }
+            }
+        });
+        //-Конец закрытия рекламы на крестик-//
         //-Нажатия кнопки Продолжить в финишном диалоге-//
         btn_go_next_in_finishDialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (interstitialAd.isLoaded()){
-                    interstitialAd.show();
-                }
-                else {
                     try {
                         if (level>1){
                             //none
-                        }else {
+                        }
+                        else {
                             SharedPreferences.Editor editor = save.edit();
                             editor.putInt("Level", 2);
-                            editor.apply();
+                            editor.commit();
+                            Thread.sleep(100);
+                            dialogFinish.dismiss();
+                            Intent intent = new Intent(Level_01.this, GameLevels.class);
+                            startActivity(intent);
+                            finish();
+                            System.exit (0);
                         }
-                        dialogFinish.dismiss();
-                        Intent intent = new Intent(Level_01.this, GameLevels.class);
-                        startActivity(intent);
-                        finish();
-                        System.exit (0);
                     }catch (Exception ignored) {               }
                 }
-
-
-            }
         });
         //-Конец нажатия кнопки Продолжить в финишном диалоге-//
 
@@ -156,9 +157,6 @@ public class Level_01 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    if (interstitialAd.isLoaded()){
-                        interstitialAd.show();
-                    }
                     Intent intent = new Intent(Level_01.this, GameLevels.class);
                     startActivity(intent);
                     finish();
@@ -166,14 +164,15 @@ public class Level_01 extends AppCompatActivity {
                 }catch (Exception ignored) {               }
             }
         });
-        //-Конец обработки кнопки НАЗАД-//
+        //-Конец обработки кнопки назад-//
+        //--------------Конец Обработки нажатий-------------------//
 
-        init();//-Запустить создание поля-//
-        scramble();//-Смешать пазлы-//
+
+        init();//-запустить создание поля-//
+        scramble();//-смешать пазлы-//
         setDimensions();
 
-    }//-Конец ON-CREATED-
-
+    }//----------------------------------------------------
 
     private void init() {
 
@@ -184,7 +183,7 @@ public class Level_01 extends AppCompatActivity {
         for (int i = 0; i < DIMENSIONS; i++) {
             tileList[i] = String.valueOf(i);
         }
-    }//-Метод создающий игровое поле
+    }//-метод создающий игровое поле-//
 
     private void scramble() {
         int index;
@@ -197,7 +196,7 @@ public class Level_01 extends AppCompatActivity {
             tileList[index] = tileList[i];
             tileList[i] = temp;
         }
-    }//-Метод смешивания паззлов в случайном порядке
+    }//-метод смешивания паззлов в случайном порядке-//
 
     private void setDimensions() {
         ViewTreeObserver vto = mGridView.getViewTreeObserver();
@@ -217,7 +216,7 @@ public class Level_01 extends AppCompatActivity {
                 display(getApplicationContext());
             }
         });
-    }//-Метод отслеживания жестов-//
+    }
 
     private int getStatusBarHeight (Context context) {
         int result = 0;
@@ -248,6 +247,7 @@ public class Level_01 extends AppCompatActivity {
             }
             buttons.add(button);
         }
+
         mGridView.setAdapter(new CustomAdapter(buttons, mColumnWidth, mColumnHeight));
     }//-Метод отображения графики
 
@@ -258,8 +258,6 @@ public class Level_01 extends AppCompatActivity {
         display(context);
 
         if (isSolved()) {
-//            //Toast.makeText(context, "YOU WIN!", Toast.LENGTH_SHORT).show();
-
             dialogFinish.show();
         }
     } //-Метод передвижения блоков
@@ -268,13 +266,11 @@ public class Level_01 extends AppCompatActivity {
 
         // Upper-left-corner tile
         if (position == 0) {
-
             if (direction.equals(RIGHT)) swapLvl_01(context, position, 1);
             else if (direction.equals(DOWN)) swapLvl_01(context, position, COLLUMN);
-
-
             // Upper-center tiles
-        } else if (position > 0 && position < COLLUMN - 1) {
+        }
+        else if (position > 0 && position < COLLUMN - 1) {
             switch (direction) {
                 case LEFT:
                     swapLvl_01(context, position, -1);
@@ -286,16 +282,14 @@ public class Level_01 extends AppCompatActivity {
                     swapLvl_01(context, position, 1);
                     break;
             }
-
-
             // Upper-right-corner tile
-        } else if (position == COLLUMN - 1) {
+        }
+        else if (position == COLLUMN - 1) {
             if (direction.equals(LEFT)) swapLvl_01(context, position, -1);
             else if (direction.equals(DOWN)) swapLvl_01(context, position, COLLUMN);
-
-
             // Left-side tiles
-        } else if (position > COLLUMN - 1 && position < DIMENSIONS - COLLUMN &&
+        }
+        else if (position > COLLUMN - 1 && position < DIMENSIONS - COLLUMN &&
                 position % COLLUMN == 0) {
             switch (direction) {
                 case UP:
@@ -311,7 +305,8 @@ public class Level_01 extends AppCompatActivity {
 
 
             // Right-side AND bottom-right-corner tiles
-        } else if (position == COLLUMN * 2 - 1 || position == COLLUMN * 3 - 1) {
+        }
+        else if (position == COLLUMN * 2 - 1 || position == COLLUMN * 3 - 1) {
             switch (direction) {
                 case UP:
                     swapLvl_01(context, position, -COLLUMN);
@@ -320,23 +315,19 @@ public class Level_01 extends AppCompatActivity {
                     swapLvl_01(context, position, -1);
                     break;
                 case DOWN:
-
-                    // Tolerates only the right-side tiles to swap downwards as opposed to the bottom-
-                    // right-corner tile.
                     if (position <= DIMENSIONS - COLLUMN - 1) swapLvl_01(context, position,
                             COLLUMN);
 
                     break;
             }
-
             // Bottom-left corner tile
-        } else if (position == DIMENSIONS - COLLUMN) {
+        }
+        else if (position == DIMENSIONS - COLLUMN) {
             if (direction.equals(UP)) swapLvl_01(context, position, -COLLUMN);
             else if (direction.equals(RIGHT)) swapLvl_01(context, position, 1);
-
-
             // Bottom-center tiles
-        } else if (position < DIMENSIONS - 1 && position > DIMENSIONS - COLLUMN) {
+        }
+        else if (position < DIMENSIONS - 1 && position > DIMENSIONS - COLLUMN) {
             switch (direction) {
                 case UP:
                     swapLvl_01(context, position, -COLLUMN);
@@ -348,10 +339,9 @@ public class Level_01 extends AppCompatActivity {
                     swapLvl_01(context, position, 1);
                     break;
             }
-
-
             // Center tiles
-        } else {
+        }
+        else {
             switch (direction) {
                 case UP:
                     swapLvl_01(context, position, -COLLUMN);

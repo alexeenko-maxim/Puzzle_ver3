@@ -62,7 +62,7 @@ public class Level_08 extends AppCompatActivity {
                 try {
                     SharedPreferences.Editor editor = save.edit();
                     editor.putInt("Level", 9);
-                    editor.apply();
+                    editor.commit();
                     Intent intent = new Intent(Level_08.this, GameLevels.class);
                     startActivity(intent);
                     finish();
@@ -101,7 +101,7 @@ public class Level_08 extends AppCompatActivity {
                     }else {
                         SharedPreferences.Editor editor = save.edit();
                         editor.putInt("Level", 9);
-                        editor.apply();
+                        editor.commit();
                     }
                     dialogFinish.dismiss();
                     Intent intent = new Intent(Level_08.this, GameLevels.class);

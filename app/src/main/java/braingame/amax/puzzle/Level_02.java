@@ -1,5 +1,7 @@
 package braingame.amax.puzzle;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -14,7 +16,6 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -27,9 +28,10 @@ import java.util.Random;
 
 public class Level_02 extends AppCompatActivity {
 
+    //-Блок переменных-//
+    private static GestureDetectGridView2 mGridView;
     private Dialog hint;
     private SharedPreferences save;
-    private static GestureDetectGridView2 mGridView;
     private static Dialog dialogFinish;
     private static final int COLLUMN = 3;
     private static final int DIMENSIONS = COLLUMN * COLLUMN;
@@ -46,6 +48,17 @@ public class Level_02 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_02);
+
+        //-Сохранение данных активности-//
+        save = getSharedPreferences("Save", MODE_PRIVATE);
+        final int level = save.getInt("Level", 1);
+        //-Конец сохранения данных-//
+
+        //-Скрытие строки состояния-//
+        Window w = getWindow();
+        w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //-Конец скрытия строки состояния-//
+
         //-Рекламный блок-//
         MobileAds.initialize(this, "ca-app-pub-6829999012626733~5810211480");
         interstitialAd = new InterstitialAd(this);
@@ -53,28 +66,17 @@ public class Level_02 extends AppCompatActivity {
         AdRequest adRequest = new AdRequest.Builder().build();
         interstitialAd.loadAd(adRequest);
         //-Конец рекламного блока-//
-        //-Закрытие рекламы на крестик-//
-        interstitialAd.setAdListener(new AdListener() {
-            @Override
-            public void onAdClosed() {
-                try {
-                    SharedPreferences.Editor editor = save.edit();
-                    editor.putInt("Level", 3);
-                    editor.apply();
-                    Intent intent = new Intent(Level_02.this, GameLevels.class);
-                    startActivity(intent);
-                    finish();
 
-                } catch (Exception ignored) {
-
-                }
-            }
-        });
-        //-Конец закрытия рекламы на крестик-//
-        //-Скрытие строки состояния-//
-        Window w = getWindow();
-        w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        //-Конец скрытия строки состояния-//
+        //-Диалог с подсказкой-//
+        hint = new Dialog(this);
+        hint.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        hint.setContentView(R.layout.activity_hint);
+        Objects.requireNonNull(hint.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        ImageView imageView = hint.findViewById(R.id.img_hint);
+        imageView.setBackgroundResource(R.drawable.lvl_02_full);
+        Button btn_close_hint = hint.findViewById(R.id.close_hint_button);
+        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        //-Конец диалога с подсказкой-//
 
         //-Финишный диалог-//
         dialogFinish = new Dialog(this);
@@ -83,23 +85,36 @@ public class Level_02 extends AppCompatActivity {
         Objects.requireNonNull(dialogFinish.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialogFinish.setCancelable(false);
         Button btn_go_next_in_finishDialog = dialogFinish.findViewById(R.id.btn_go_next_in_finishDialog);
+        //-Конец финишного диалога-//
 
-        //-Сохранение данных активности-//
-        save = getSharedPreferences("Save", MODE_PRIVATE);
-        final int level = save.getInt("Level", 1);
+        //-Закрытие рекламы на крестик-//
+        interstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                try {
+                    SharedPreferences.Editor editor = save.edit();
+                    editor.putInt("Level", 3);
+                    editor.commit();
+                    Intent intent = new Intent(Level_02.this, GameLevels.class);
+                    startActivity(intent);
+                    finish();
+                } catch (Exception ignored) {                }
+            }
+        });
+        //-Конец закрытия рекламы на крестик-//
 
-        //-Конец сохранения данных-//
-
+        //-Кнопка продолжить в финишном диалоге-//
         btn_go_next_in_finishDialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
                     if (level>2){
                         //none
-                    }else {
+                    }
+                    else {
                         SharedPreferences.Editor editor = save.edit();
                         editor.putInt("Level", 3);
-                        editor.apply();
+                        editor.commit();
                     }
                     dialogFinish.dismiss();
                     Intent intent = new Intent(Level_02.this, GameLevels.class);
@@ -110,17 +125,9 @@ public class Level_02 extends AppCompatActivity {
                 }catch (Exception ignored) {               }
             }
         });
-        //-Конец финишного диалога-//
-        //-Диалог с подсказкой-//
-        hint = new Dialog(this);
-        hint.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        hint.setContentView(R.layout.activity_hint);
-        Objects.requireNonNull(hint.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        ImageView imageView = hint.findViewById(R.id.img_hint);
-        imageView.setBackgroundResource(R.drawable.lvl_02_full);
-        //-Блок переменных-//
-        Button btn_close_hint = hint.findViewById(R.id.close_hint_button);
-        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        //-Конец кнопка продолжить в финишном диалоге-//
+
+        //-Обработка кнопки Закрыть подсказку-//
         btn_close_hint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -128,7 +135,9 @@ public class Level_02 extends AppCompatActivity {
                 catch (Exception ignored) {}
             }
         });
-        //-Обработка кнопки Закрыть подсказку-//
+        //-Конец обработки кнопки Закрыть подсказку-//
+
+        //-Обработка кнопки Открыть подсказку-//
         Button btn_openHint = findViewById(R.id.btn_hint_lvl_02);
         btn_openHint.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,10 +147,7 @@ public class Level_02 extends AppCompatActivity {
                 }catch (Exception ignored) {               }
             }
         });
-        //-Конец обработки кнопки Закрыть подсказку-//
-        //-Конец диалога с подсказкой-//
-
-
+        //-Конец обработки кнопки Открыть подсказку-//
 
         //-Обработка кнопки назад-//
         Button btn_back_to_gamelevels = findViewById(R.id.btn_back_lvl_02);
@@ -298,7 +304,7 @@ public class Level_02 extends AppCompatActivity {
                     swapLvl_02(context, position, 1);
                     break;
             }
-//            else
+
 
             // Upper-right-corner tile
         } else if (position == COLLUMN - 1) {
@@ -320,7 +326,7 @@ public class Level_02 extends AppCompatActivity {
                     swapLvl_02(context, position, COLLUMN);
                     break;
             }
-//            else
+
 
             // Right-side AND bottom-right-corner tiles
         } else if (position == COLLUMN * 2 - 1 || position == COLLUMN * 3 - 1) {
@@ -337,7 +343,7 @@ public class Level_02 extends AppCompatActivity {
                     // right-corner tile.
                     if (position <= DIMENSIONS - COLLUMN - 1) swapLvl_02(context, position,
                             COLLUMN);
-//                else
+
                     break;
             }
 
@@ -360,7 +366,7 @@ public class Level_02 extends AppCompatActivity {
                     swapLvl_02(context, position, 1);
                     break;
             }
-//            else
+
 
             // Center tiles
         } else {

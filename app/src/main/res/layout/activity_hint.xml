@@ -20,8 +20,8 @@
 
         <ImageView
             android:id="@+id/img_hint"
-            android:layout_width="250dp"
-            android:layout_height="300dp"
+            android:layout_width="350dp"
+            android:layout_height="480dp"
             android:contentDescription="@string/discription_hint"
             android:padding="10dp"
             android:scaleType="centerCrop" />

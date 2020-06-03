@@ -43,14 +43,14 @@ public class Splash extends AppCompatActivity {
                     });
                     progressBar.setProgress(i);
                     i=i+2;
-                }else{
+                }
+                else{
                     //closing the timer
                     timer.cancel();
                     Intent intent =new Intent(Splash.this, HomePage.class);
                     startActivity(intent);
                     // close this activity
                     finish();
-                    System.exit (0);
                 }
             }
         }, 0, period);

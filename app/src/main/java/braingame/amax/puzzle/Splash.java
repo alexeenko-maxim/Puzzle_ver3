@@ -8,6 +8,12 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.Timer;
 import java.util.TimerTask;
+import com.microsoft.appcenter.AppCenter;
+import com.microsoft.appcenter.analytics.Analytics;
+import com.microsoft.appcenter.crashes.Crashes;
+import com.microsoft.appcenter.AppCenter;
+import com.microsoft.appcenter.analytics.Analytics;
+import com.microsoft.appcenter.crashes.Crashes;
 
 public class Splash extends AppCompatActivity {
     //-Блок переменных-//
@@ -21,6 +27,8 @@ public class Splash extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        AppCenter.start(getApplication(), "85f44c97-0687-48c6-aa40-ebb90f8d456b",
+        Analytics.class, Crashes.class);
         //-Создание прогресс бара-//
         progressBar= findViewById(R.id.progressBar);
         progressBar.setProgress(0);

@@ -7,9 +7,9 @@ android {
     signingConfigs {
         releaseSigningConfig {
             storeFile rootProject.file("app/key_sobir.jks")
-            storePassword System.getProperty("e1721238t")
-            keyAlias System.getProperty("key_sobir")
-            keyPassword System.getProperty("e1721238t")
+            storePassword "e1721238t"
+            keyAlias "key_sobir"
+            keyPassword "e1721238t"
         }
 
         defaultConfig {
@@ -52,4 +52,9 @@ android {
         androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
         implementation 'com.google.android.gms:play-services-ads:16.0.0'
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    ndkVersion '21.0.6113669'
 }
